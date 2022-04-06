@@ -12,7 +12,7 @@ Find the index of "c" using .indexOf(). What do you observe?
 Find the index of "C" using .indexOf().
 Retrieve a substring that contains only the word "Codeup" by using indexOf() and substring().
 
-*/
+
 
 let sample = "Hello Codeup"
 
@@ -46,13 +46,12 @@ let indexCodeup = sample.substring(6,12)
 console.log('substring of \'Codeup\' in sample is:', indexCodeup)
 
 
-/*
+
 
 3. Write some JavaScript code, that is, variables and operators, to describe the following scenarios. Do not worry about the real operations to get the values, the goal of these exercises is to understand how real world conditions can be represented with code.
 
-*/
 
-/*
+
 
 You have rented some movies for your kids: The little mermaid (for 3 days), Brother Bear (for 5 days, they love it), and Hercules (1 day, you don't know yet if they're going to like it). If price for a movie per day is $3, how much will you have to pay?
 
@@ -144,16 +143,11 @@ neither the username or password can start or end with whitespace
 */
 
 let username = 'codeup'
-let password = 'strongpassword'
-
+let password = 'notastrongpassword'
 
 let validUsername = false
 let validPassword = false
 let validLogin = false
-let pw5Char = true
-let pwInUsername = false
-let userNoMoreThan20 = true
-
 
 // remove white space front and back for both username and password
 username = username.trim()
@@ -163,13 +157,13 @@ password = password.trim()
 let userLength = username.length
 let passwordLength = password.length
 
-
 //check if username length >= 5 chars and password length <= than 20
 if (userLength+1 <= 20 && passwordLength+1 >= 5) {
     validUsername = true
     validPassword = true
 }
 
+/* Old solution prior to demo'ing
 //check to see if username inside of password. if yes, not valid password
 let frontUserIndex = 0
 let backUserIndex = userLength-1
@@ -183,6 +177,12 @@ while (backUserIndex < passwordLength) {
     console.log(frontUserIndex, checkUserInPass)
     frontUserIndex++
     backUserIndex++
+}
+*/
+
+//check to see if username inside of password. if yes, not valid password
+if (password.indexOf(username) !== -1) {
+    validPassword = false
 }
 
 //all checks done to see if username and password are valid
