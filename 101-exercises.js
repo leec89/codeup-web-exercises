@@ -3,24 +3,24 @@
 // Keep this function definition in order to test expected vs. actual results
 const assert = function(actual, expected, message = "") {
 
-    // This compares primitive values and collections. If they differ, throw an error.
-    if(JSON.stringify(actual) !== JSON.stringify(expected)) {
-        console.error('[assert] expected:    ' + JSON.stringify(expected))
-        console.error('[assert] instead got: ' + JSON.stringify(actual))
+  // This compares primitive values and collections. If they differ, throw an error.
+  if(JSON.stringify(actual) !== JSON.stringify(expected)) {
+    console.error('[assert] expected:    ' + JSON.stringify(expected))
+    console.error('[assert] instead got: ' + JSON.stringify(actual))
 
-        throw Error("Assert failed in " + message);
-    }
-};  
+    throw Error("Assert failed in " + message);
+  }
+};
 
 
 // Keep this function here in order to add correct questions to the counter
 function addToDone(message) {
-    var node = document.createElement("LI");                 // Create a <li> node
-    var textnode = document.createTextNode(message);         // Create a text node
-    node.appendChild(textnode);                              // Append the text to <li>
-    node.classList.add("finished");
-    document.querySelector(".correct ul").appendChild(node);
-    document.querySelector("#count").innerHTML = document.querySelectorAll('.finished').length + " of 101";
+  var node = document.createElement("LI");                 // Create a <li> node
+  var textnode = document.createTextNode(message);         // Create a text node
+  node.appendChild(textnode);                              // Append the text to <li>
+  node.classList.add("finished");
+  document.querySelector(".correct ul").appendChild(node);
+  document.querySelector("#count").innerHTML = document.querySelectorAll('.finished').length + " of 101";
 }
 
 
@@ -38,7 +38,7 @@ function addToDone(message) {
 
 var doingJSRightNow = true
 
-assert(doingJSRightNow, true, "Exercise 0"); 
+assert(doingJSRightNow, true, "Exercise 0");
 
 
 //  Exercise 1
@@ -139,42 +139,42 @@ addToDone("Exercise 10 is correct")
 
 // This function generates a random number that is both positive and even
 function randomPositiveEvenNumber() {
-    var randomNumber = Math.ceil(Math.random() * 100) + 10;
-    if(randomNumber % 2 !== 0) {
-        return randomPositiveEvenNumber()
-    }
+  var randomNumber = Math.ceil(Math.random() * 100) + 10;
+  if(randomNumber % 2 !== 0) {
+    return randomPositiveEvenNumber()
+  }
 
-    return randomNumber;
+  return randomNumber;
 }
 
 // this function generates a random number that is both positive and odd
 function randomPositiveOddNumber() {
-    var randomNumber = Math.ceil(Math.random() * 100) + 10;
-    if(randomNumber % 2 === 0) {
-        return randomPositiveOddNumber();
-    }
+  var randomNumber = Math.ceil(Math.random() * 100) + 10;
+  if(randomNumber % 2 === 0) {
+    return randomPositiveOddNumber();
+  }
 
-    return randomNumber;
+  return randomNumber;
 }
 
 // this function generates a random number that is both negative and even.
 function randomNegativeEvenNumber() {
-    var randomNumber = Math.ceil(Math.random() * -100) - 10;
-    if(randomNumber % 2 === 0) {
-        return randomNumber;
-    }
+  var randomNumber = Math.ceil(Math.random() * -100) - 10;
+  if(randomNumber % 2 === 0) {
+    return randomNumber;
+  }
 
-    return randomNegativeEvenNumber();
+  return randomNegativeEvenNumber();
 }
 
 // this function generates a random number that is both negative and odd.
 function randomNegativeOddNumber() {
-    var randomNumber = Math.ceil(Math.random() * -100) - 10;
-    if(randomNumber % 2 === 0) {
-        return randomNegativeOddNumber();
-    }
+  var randomNumber = Math.ceil(Math.random() * -100) - 10;
+  if(randomNumber % 2 === 0) {
+    return randomNegativeOddNumber();
+  }
 
-    return randomNumber;
+  return randomNumber;
 }
 
 // The next 4 lines create variables that hold these generated random numbers
@@ -191,7 +191,7 @@ var negativeOddNumber = randomNegativeOddNumber();
 // Example function defintion:
 // Write a sayHello function that adds the string "Hello, " to the beginning and "!" to the end of any given input.
 function sayHello(name) {
-    return "Hello, " + name + "!";
+  return "Hello, " + name + "!";
 }
 
 assert(sayHello("Jane"), "Hello, Jane!");
@@ -204,7 +204,7 @@ assert(sayHello("World"), "Hello, World!");
 // Heres another example function definition
 // This plusTwo function takes in a variable and adds the number 2 to it.
 function plusTwo(x) {
-    return x + 2;
+  return x + 2;
 }
 
 assert(plusTwo(3), 5, "3 plus 2 is five")
@@ -240,13 +240,13 @@ addToDone("Exercise 11 is correct.")
 function isPositive(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if (num < 0) {
     return false;
-    } 
+  }
   else return true;
 }
 
@@ -269,13 +269,13 @@ addToDone("Exercise 12 is correct.")
 function isNegative(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if (num > 0) {
     return false;
-    } 
+  }
   else return true;
 }
 
@@ -292,13 +292,13 @@ addToDone("Exercise 13 is correct.")
 function isOdd(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if (num % 2 === 0) {
     return false;
-    } 
+  }
   else return true;
 }
 
@@ -314,13 +314,13 @@ addToDone("Exercise 14 is correct.")
 function isEven(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if (num % 2 === 0) {
     return true;
-    } 
+  }
   else return false;
 }
 
@@ -354,13 +354,13 @@ addToDone("Exercise 16 is correct.")
 function isPositiveOdd(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if ((num % 2 !== 0) && (num > 0)){
     return true;
-    } 
+  }
   else return false;
 }
 
@@ -378,13 +378,13 @@ addToDone("Exercise 17 is correct.")
 function isPositiveEven(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if ((num % 2 === 0) && (num > 0)){
     return true;
-    } 
+  }
   else return false;
 }
 
@@ -402,13 +402,13 @@ addToDone("Exercise 18 is correct.")
 function isNegativeOdd(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if ((num % 2 !== 0) && (num < 0)){
     return true;
-    } 
+  }
   else return false;
 }
 
@@ -426,13 +426,13 @@ addToDone("Exercise 19 is correct.")
 function isNegativeEven(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if ((num % 2 === 0) && (num < 0)){
     return true;
-    } 
+  }
   else return false;
 }
 
@@ -537,13 +537,13 @@ addToDone("Exercise 25 is correct.")
 function isMultipleOfThree(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if (num % 3 === 0) {
     return true;
-    } 
+  }
   else return false;
 }
 
@@ -563,13 +563,13 @@ addToDone("Exercise 26 is correct.")
 function isMultipleOfFive(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if (num % 5 === 0) {
     return true;
-    } 
+  }
   else return false;
 }
 
@@ -588,13 +588,13 @@ addToDone("Exercise 27 is correct.")
 function isMultipleOfBothThreeAndFive(num) {
   if (num.isNaN === false) {
     return false;
-    }
+  }
   else if (num === 0) {
     return false;
-    }
+  }
   else if ((num % 3 === 0) && (num % 5 === 0)) {
     return true;
-    } 
+  }
   else return false;
 }
 
@@ -812,12 +812,12 @@ addToDone("Exercise 42 is correct.")
 
 // Example function where the function returns true if the input is one OR two.
 function isOneOrTwo(x) {
-    return x == 1 || x == 2
+  return x == 1 || x == 2
 }
 
 // Example function where the input is one of 3 possibilities
 function isOneOrTwoOrThree(x) {
-    return x == 1 || x == 2 || x == 3
+  return x == 1 || x == 2 || x == 3
 }
 
 // Exercise 43
@@ -828,7 +828,7 @@ function isVowel(val) {
   var vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
   if (vowels.indexOf(val) === -1) {
     return false
-  } else { 
+  } else {
     return true};
 }
 
@@ -989,12 +989,12 @@ addToDone("Exercise 49 is correct.")
 function first(inputVal) {
   var typeOfInput = typeof(inputVal)
   if (typeOfInput === 'string') {
-    var stringArr = inputVal.split('')    
+    var stringArr = inputVal.split('')
     return stringArr[0]
   }
-  if (typeOfInput === 'object') { 
+  if (typeOfInput === 'object') {
     return inputVal[0]
-  }  
+  }
 }
 
 assert(first("ubuntu"), "u", "Exercise 50");
@@ -1008,6 +1008,16 @@ addToDone("Exercise 50 is correct.")
 // Exercise 51
 // Write a function definition named second that takes in sequence and returns the second value of that sequence.
 
+function second(inputVal) {
+  var typeOfInput = typeof(inputVal)
+  if (typeOfInput === 'string') {
+    var stringArr = inputVal.split('')
+    return stringArr[1]
+  }
+  if (typeOfInput === 'object') {
+    return inputVal[1]
+  }
+}
 assert(second("ubuntu"), "b", "Exercise 51");
 assert(second([1, 2, 3]), 2, "Exercise 51");
 assert(second(["JS", "is", "awesome"]), "is", "Exercise 51");
@@ -1016,6 +1026,17 @@ addToDone("Exercise 51 is correct.")
 
 // Exercise 52
 // Write a function definition named third that takes in sequence and returns the third value of that sequence.
+
+function third(inputVal) {
+  var typeOfInput = typeof(inputVal)
+  if (typeOfInput === 'string') {
+    var stringArr = inputVal.split('')
+    return stringArr[2]
+  }
+  if (typeOfInput === 'object') {
+    return inputVal[2]
+  }
+}
 
 assert(third("ubuntu"), "u", "Exercise 52");
 assert(third([1, 2, 3]), 3, "Exercise 52");
@@ -1026,6 +1047,17 @@ addToDone("Exercise 52 is correct.")
 // Exercise 53
 // Write a function definition named forth that takes in sequence and returns the forth value of that sequence.
 
+function forth(inputVal) {
+  var typeOfInput = typeof(inputVal)
+  if (typeOfInput === 'string') {
+    var stringArr = inputVal.split('')
+    return stringArr[3]
+  }
+  if (typeOfInput === 'object') {
+    return inputVal[3]
+  }
+}
+
 assert(forth("ubuntu"), "n", "Exercise 53");
 assert(forth([1, 2, 3, 4]), 4, "Exercise 53");
 assert(forth(["JS", "is", "awesome", "right?"]), "right?", "Exercise 53");
@@ -1034,6 +1066,19 @@ addToDone("Exercise 53 is correct.")
 
 // Exercise 54
 // Write a function definition named last that takes in sequence and returns the last value of that sequence.
+
+function last(inputVal) {
+  var typeOfInput = typeof (inputVal)
+  if (typeOfInput === 'string') {
+    var endOfStrIndex = inputVal.length - 1
+    var stringArr = inputVal.split('')
+    return stringArr[endOfStrIndex]
+  }
+  if (typeOfInput === 'object') {
+    var endOfObjIndex = inputVal.length - 1
+    return inputVal[endOfObjIndex]
+  }
+}
 
 assert(last("ubuntu"), "u", "Exercise 54");
 assert(last([1, 2, 3, 4]), 4, "Exercise 54");
@@ -1045,6 +1090,19 @@ addToDone("Exercise 54 is correct.")
 // Exercise 55
 // Write a function definition named secondToLast that takes in sequence and returns the second to last value of that sequence.
 
+function secondToLast(inputVal) {
+  var typeOfInput = typeof (inputVal)
+  if (typeOfInput === 'string') {
+    var secondToLastOfStrIndex = inputVal.length - 2
+    var stringArr = inputVal.split('')
+    return stringArr[secondToLastOfStrIndex]
+  }
+  if (typeOfInput === 'object') {
+    var secondToLastOfObjIndex = inputVal.length - 2
+    return inputVal[secondToLastOfObjIndex]
+  }
+}
+
 assert(secondToLast("ubuntu"), "t", "Exercise 55");
 assert(secondToLast([1, 2, 3, 4]), 3, "Exercise 55");
 assert(secondToLast(["JS", "is", "awesome"]), "is", "Exercise 55");
@@ -1054,6 +1112,19 @@ addToDone("Exercise 55 is correct.")
 
 // Exercise 56
 // Write a function definition named thirdToLast that takes in sequence and returns the third to last value of that sequence.
+
+function thirdToLast(inputVal) {
+  var typeOfInput = typeof (inputVal)
+  if (typeOfInput === 'string') {
+    var thirdToLastOfStrIndex = inputVal.length - 3
+    var stringArr = inputVal.split('')
+    return stringArr[thirdToLastOfStrIndex]
+  }
+  if (typeOfInput === 'object') {
+    var thirdToLastOfObjIndex = inputVal.length - 3
+    return inputVal[thirdToLastOfObjIndex]
+  }
+}
 
 assert(thirdToLast("ubuntu"), "n", "Exercise 56");
 assert(thirdToLast([1, 2, 3, 4]), 2, "Exercise 56");
@@ -1361,17 +1432,17 @@ addToDone("Exercise 86 is correct.")
 
 // The following objects 
 const tukeyPaper = {
-    "title": "The Future of Data Analysis",
-    "author": "John W. Tukey",
-    "link": "https://projecteuclid.org/euclid.aoms/1177704711",
-    "year_published": 1962
+  "title": "The Future of Data Analysis",
+  "author": "John W. Tukey",
+  "link": "https://projecteuclid.org/euclid.aoms/1177704711",
+  "year_published": 1962
 }
 
 const thomasPaper = {
-    "title": "A mathematical model of glutathione metabolism",
-    "author": "Rachel Thomas",
-    "link": "https://www.ncbi.nlm.nih.gov/pubmed/18442411",
-    "year_published": 2008
+  "title": "A mathematical model of glutathione metabolism",
+  "author": "Rachel Thomas",
+  "link": "https://www.ncbi.nlm.nih.gov/pubmed/18442411",
+  "year_published": 2008
 }
 
 
@@ -1393,9 +1464,9 @@ addToDone("Exercise 88 is correct.")
 
 // this code defines a JS object with information about a book.
 const book = {
-    "title": "Genetic Algorithms and Machine Learning for Programmers",
-    "price": 36.99,
-    "author": "Frances Buontempo"
+  "title": "Genetic Algorithms and Machine Learning for Programmers",
+  "price": 36.99,
+  "author": "Frances Buontempo"
 }
 
 // Exercise 89
@@ -1418,26 +1489,26 @@ addToDone("Exercise 90 is complete.")
 // You'll see arrays of objects over and over again with data in a program. 
 // Here is our arrays of objects.
 const books = [
-    {
-        "title": "Genetic Algorithms and Machine Learning for Programmers",
-        "price": 36.99,
-        "author": "Frances Buontempo"
-    },
-    {
-        "title": "The Visual Display of Quantitative Information",
-        "price": 38.00,
-        "author": "Edward Tufte"
-    },
-    {
-        "title": "Practical Object-Oriented Design",
-        "author": "Sandi Metz",
-        "price": 30.47
-    },
-    {
-        "title": "Weapons of Math Destruction",
-        "author": "Cathy O'Neil",
-        "price": 17.44
-    }
+  {
+    "title": "Genetic Algorithms and Machine Learning for Programmers",
+    "price": 36.99,
+    "author": "Frances Buontempo"
+  },
+  {
+    "title": "The Visual Display of Quantitative Information",
+    "price": 38.00,
+    "author": "Edward Tufte"
+  },
+  {
+    "title": "Practical Object-Oriented Design",
+    "author": "Sandi Metz",
+    "price": 30.47
+  },
+  {
+    "title": "Weapons of Math Destruction",
+    "author": "Cathy O'Neil",
+    "price": 17.44
+  }
 ]
 
 
@@ -1468,9 +1539,9 @@ addToDone("Exercise 93 is complete.")
 // Hint: Much like sometimes start functions with a variable set to zero, you may want to create a object with the price set to zero to compare to each object's price in the array
 
 assert(highestPriceBook(books), {
-    "title": "The Visual Display of Quantitative Information",
-    "price": 38.00,
-    "author": "Edward Tufte"
+  "title": "The Visual Display of Quantitative Information",
+  "price": 38.00,
+  "author": "Edward Tufte"
 }, "Exercise 94");
 
 addToDone("Exercise 94 is complete")
@@ -1483,42 +1554,42 @@ addToDone("Exercise 94 is complete")
 
 
 assert(lowestPriceBook(books), {
-    "title": "Weapons of Math Destruction",
-    "author": "Cathy O'Neil",
-    "price": 17.44
+  "title": "Weapons of Math Destruction",
+  "author": "Cathy O'Neil",
+  "price": 17.44
 }, "Exercise 95");
 addToDone("Exercise 95 is complete.")
 
 
 const shoppingCart = {
-    "tax": .08,
-    "items": [
-        {
-            "title": "orange juice",
-            "price": 3.99,
-            "quantity": 1
-        },
-        {
-            "title": "rice",
-            "price": 1.99,
-            "quantity": 3
-        },
-        {
-            "title": "beans",
-            "price": 0.99,
-            "quantity": 3
-        },
-        {
-            "title": "chili sauce",
-            "price": 2.99,
-            "quantity": 1
-        },
-        {
-            "title": "chocolate",
-            "price": 0.75,
-            "quantity": 9
-        }
-    ]
+  "tax": .08,
+  "items": [
+    {
+      "title": "orange juice",
+      "price": 3.99,
+      "quantity": 1
+    },
+    {
+      "title": "rice",
+      "price": 1.99,
+      "quantity": 3
+    },
+    {
+      "title": "beans",
+      "price": 0.99,
+      "quantity": 3
+    },
+    {
+      "title": "chili sauce",
+      "price": 2.99,
+      "quantity": 1
+    },
+    {
+      "title": "chocolate",
+      "price": 0.75,
+      "quantity": 9
+    }
+  ]
 }
 
 
@@ -1573,8 +1644,8 @@ addToDone("Exercise 100 is complete.")
 // Hint: Consider creating a variable that is a object with the keys "price" and "quantity" both set to 0. You can then compare each item's price and quantity total to the one from "most"
 
 assert(mostSpentOnItem(shoppingCart), {
-    "title": "chocolate",
-    "price": 0.75,
-    "quantity": 9
+  "title": "chocolate",
+  "price": 0.75,
+  "quantity": 9
 }, "Exercise 101");
 addToDone("Exercise 101 is complete.")
