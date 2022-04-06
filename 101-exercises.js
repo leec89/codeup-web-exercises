@@ -1136,6 +1136,11 @@ addToDone("Exercise 56 is correct.")
 // Exercise 57
 // Write a function definition named firstAndSecond that takes in sequence and returns the first and second value of that sequence as an array
 
+function firstAndSecond(inputSeq) {
+  var returnFirstAndSecond = [inputSeq[0], inputSeq[1]]
+  return returnFirstAndSecond
+}
+
 assert(firstAndSecond([1, 2, 3, 4]), [1, 2], "Exercise 57");
 assert(firstAndSecond(["JS", "is", "awesome"]), ["JS", "is"], "Exercise 57");
 assert(firstAndSecond(["strawberry", "kiwi", "mango", "guava"]), ["strawberry", "kiwi"], "Exercise 57");
@@ -1145,15 +1150,25 @@ addToDone("Exercise 57 is correct.")
 // Exercise 58
 // Write a function definition named firstAndLast that takes in sequence and returns the first and last value of that sequence as an array
 
+function firstAndLast(inputSeq) {
+  var returnFirstAndLast = [inputSeq[0], inputSeq[inputSeq.length-1]]
+  return returnFirstAndLast
+}
+
 assert(firstAndLast([1, 2, 3, 4]), [1, 4], "Exercise 58");
 assert(firstAndLast(["JS", "is", "awesome"]), ["JS", "awesome"], "Exercise 58");
 assert(firstAndLast(["strawberry", "kiwi", "mango", "guava"]), ["strawberry", "guava"], "Exercise 58");
 addToDone("Exercise 58 is correct.")
 
 
-
 // Exercise 59
 // Write a function definition named firstToLast that takes in sequence and returns the sequence with the first value moved to the end of the sequence.
+
+function firstToLast(inputSeq) {
+  var sendToBack = inputSeq.shift()
+  inputSeq.push(sendToBack)
+  return inputSeq
+}
 
 assert(firstToLast([1, 2, 3, 4]), [2, 3, 4, 1], "Exercise 59");
 assert(firstToLast(["JS", "is", "awesome"]), ["is", "awesome", "JS"], "Exercise 59");
@@ -1161,9 +1176,16 @@ assert(firstToLast(["strawberry", "kiwi", "mango", "guava"]), ["kiwi", "mango", 
 addToDone("Exercise 59 is correct.")
 
 
-
 // Exercise 60
 // Write a function definition named sumAll that takes in sequence of numbers and returns all the numbers added together.
+
+function sumAll (inputSeq) {
+  var total = 0
+  for (var x in inputSeq) {
+    total += inputSeq[x]
+  }
+  return total
+}
 
 assert(sumAll([1, 2, 3, 4]), 10, "Exercise 60");
 assert(sumAll([3, 3, 3]), 9, "Exercise 60");
