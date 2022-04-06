@@ -1,5 +1,53 @@
 /*
 
+2. Execute the following statement in the Chrome JavaScript console and then follow the directions below.
+
+
+var sample = "Hello Codeup";
+Use .length to find the number of characters in the string.
+Try to make the sample string all upper or all lower case.
+Update the variable sample via concatenation so that it contains "Hello Codeup Students".
+Replace "Students" with "Class".
+Find the index of "c" using .indexOf(). What do you observe?
+Find the index of "C" using .indexOf().
+Retrieve a substring that contains only the word "Codeup" by using indexOf() and substring().
+
+*/
+
+let sample = "Hello Codeup"
+
+//Use .length to find the number of characters in the string.
+let sampleLength = sample.length
+console.log('sample length is:', sampleLength)
+
+//Try to make the sample string all upper or all lower case.
+let sampleUpper = sample.toUpperCase()
+let sampleLower = sample.toLowerCase()
+console.log('sample Uppercase is:', sampleUpper)
+console.log('sample Lowercase is:', sampleLower)
+
+//Update the variable sample via concatenation so that it contains "Hello Codeup Students".
+sample = sample + ' Students'
+console.log('updated sample is:', sample)
+
+//Replace "Students" with "Class".
+sample = sample.replace('Students', 'Class')
+console.log('updated sample is:', sample)
+
+//Find the index of "c" using .indexOf(). What do you observe?
+// -not found due to case-sensitive
+
+//Find the index of "C" using .indexOf().
+let indexFindC = sample.indexOf('C')
+console.log('index of \'C\' in sample is:', indexFindC)
+
+//Retrieve a substring that contains only the word "Codeup" by using indexOf() and substring().
+let indexCodeup = sample.substring(6,12)
+console.log('substring of \'Codeup\' in sample is:', indexCodeup)
+
+
+/*
+
 3. Write some JavaScript code, that is, variables and operators, to describe the following scenarios. Do not worry about the real operations to get the values, the goal of these exercises is to understand how real world conditions can be represented with code.
 
 */
@@ -10,15 +58,15 @@ You have rented some movies for your kids: The little mermaid (for 3 days), Brot
 
 */
 
-var total = 0
-var daysLittleMermaid = 3
-var daysBrotherBear = 5
-var daysHercules= 1
-var pricePerDay = 3
+let totalToPay = 0
+let daysLittleMermaid = 3
+let daysBrotherBear = 5
+let daysHercules= 1
+let pricePerDay = 3
 
-total = (daysLittleMermaid + daysBrotherBear + daysHercules) * pricePerDay
+totalToPay = (daysLittleMermaid + daysBrotherBear + daysHercules) * pricePerDay
 
-console.log(total)
+console.log(totalToPay)
 
 
 /*
@@ -27,13 +75,13 @@ Suppose you're working as a contractor for 3 companies: Google, Amazon and Faceb
 
 */
 
-var totalPay = 0
-var rateGoogle = 400
-var rateAmazon = 380
-var rateFacebook = 350
-var hoursGoogle = 6
-var hoursAmazon = 4
-var hoursFacebook = 10
+let totalPay = 0
+let rateGoogle = 400
+let rateAmazon = 380
+let rateFacebook = 350
+let hoursGoogle = 6
+let hoursAmazon = 4
+let hoursFacebook = 10
 
 totalPay = (rateGoogle * hoursGoogle) + (rateAmazon * hoursAmazon) + (rateFacebook + hoursFacebook)
 
@@ -46,9 +94,9 @@ A student can be enrolled in a class only if the class is not full and the class
 
 */
 
-var canBeEnrolled = false
-var classIsNotFull = true
-var noScheduleConflict = true
+let canBeEnrolled = false
+let classIsNotFull = true
+let noScheduleConflict = true
 
 if (classIsNotFull && noScheduleConflict) {
     canBeEnrolled = true
@@ -63,10 +111,10 @@ A product offer can be applied only if a person buys more than 2 items, and the 
 
 */
 
-var offerApplied = false
-var purchasedTwoItems = true
-var offerNotExpired = true
-var premiumMember = true
+let offerApplied = false
+let purchasedTwoItems = true
+let offerNotExpired = true
+let premiumMember = true
 
 if (premiumMember && offerNotExpired) {
     offerApplied = true
@@ -82,26 +130,64 @@ console.log(offerApplied)
 4. Use the following code to follow the instructions below:
 
 
-var username = 'codeup';
-var password = 'notastrongpassword';
+let username = 'codeup';
+let password = 'notastrongpassword';
 
 Create a variable that holds a boolean value for each of the following conditions:
 
 the password must be at least 5 characters
 the password must not include the username
+
 the username must be no more than 20 characters
 neither the username or password can start or end with whitespace
 
 */
 
-var validUsername = false
-var validPassword = false
-var pw5Char = true
-var pwNotUsername = true
-var userNoMoreThan20 = true
-var userWhiteStart = false
-var userWhiteEnd = false
-var passWhiteStart = false
-var passWhiteEnd = false
-var containsWhiteSpace = true
+let username = 'codeup'
+let password = 'strongpassword'
 
+
+let validUsername = false
+let validPassword = false
+let validLogin = false
+let pw5Char = true
+let pwInUsername = false
+let userNoMoreThan20 = true
+
+
+// remove white space front and back for both username and password
+username = username.trim()
+password = password.trim()
+
+//after trim, find length of username and password
+let userLength = username.length
+let passwordLength = password.length
+
+
+//check if username length >= 5 chars and password length <= than 20
+if (userLength+1 <= 20 && passwordLength+1 >= 5) {
+    validUsername = true
+    validPassword = true
+}
+
+//check to see if username inside of password. if yes, not valid password
+let frontUserIndex = 0
+let backUserIndex = userLength-1
+
+while (backUserIndex < passwordLength) {
+    let checkUserInPass = password.substring(frontUserIndex,frontUserIndex+userLength)
+    if (checkUserInPass === username) {
+        validPassword = false
+        break
+    }
+    console.log(frontUserIndex, checkUserInPass)
+    frontUserIndex++
+    backUserIndex++
+}
+
+//all checks done to see if username and password are valid
+if (validUsername && validPassword) {
+    validLogin = true
+}
+
+console.log('Username and password validity: ', validLogin)
