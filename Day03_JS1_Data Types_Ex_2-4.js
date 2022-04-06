@@ -83,7 +83,7 @@ let hoursGoogle = 6
 let hoursAmazon = 4
 let hoursFacebook = 10
 
-totalPay = (rateGoogle * hoursGoogle) + (rateAmazon * hoursAmazon) + (rateFacebook + hoursFacebook)
+totalPay = (rateGoogle * hoursGoogle) + (rateAmazon * hoursAmazon) + (rateFacebook * hoursFacebook)
 
 console.log(totalPay)
 
