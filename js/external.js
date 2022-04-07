@@ -123,7 +123,7 @@ while (!validLogin) {
         }
     }
 
-    // Run loop for valid username and check for length requirement
+    // Run loop for valid password and check for length requirement
     var validPassword = false;
     while (!validPassword) {
         var password = prompt('What\'s your new password?');
