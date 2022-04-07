@@ -9,6 +9,10 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 
+function sayHello(greeting) {
+    return alert('Hello, ' + greeting + '!')
+}
+
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -16,6 +20,9 @@
  *
  * console.log 'helloMessage' to check your work
  */
+var name = 'Chris';
+var helloMessage = sayHello(name);
+console.log(helloMessage)
 
 /**
  * TODO:
@@ -23,6 +30,8 @@
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
+
+// Oooops - see above
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -46,6 +55,16 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 
+function isTwo(checkIfTwo) {
+    var isItTwo = false;
+    if (checkIfTwo === 2) {
+        isItTwo = true;
+    }
+    return isItTwo;
+}
+
+console.log(random, isTwo(random))
+
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
@@ -58,12 +77,38 @@ var random = Math.floor((Math.random() * 3) + 1);
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
+function calculateTip(tipPercent, billTotal) {
+    var tipAmount = 0;
+    tipAmount = billTotal * tipPercent;
+    return Number(tipAmount);
+}
+
+// var show1 = calculateTip(0.20, 20) // returns 4
+// var show2 = calculateTip(0.25, 25.50) // returns 6.375
+// var show3 = calculateTip(0.15, 33.42) // returns 5.013
+//
+// console.log(show1);
+// console.log(show2);
+// console.log(show3);
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
+
+function askingToCalculateTip() {
+    var billSubTotal = parseFloat(prompt('How much was your bill? (without the $ symbol please)'));
+    var percentToTip = parseFloat(prompt('What percentage would you like to tip? (in decimal please)'));
+    var tipAmountReturned = parseFloat(calculateTip(billSubTotal, percentToTip)).toFixed(2);
+    var billWithTip = parseFloat(billSubTotal) + parseFloat(tipAmountReturned);
+    console.log(billWithTip);
+    alert('The tip amount is $' + tipAmountReturned + ' and the total amount of your bill is $' + billWithTip);
+    return;
+}
+
+askingToCalculateTip();
 
 /**
  * TODO:
@@ -79,3 +124,20 @@ var random = Math.floor((Math.random() * 3) + 1);
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+
+function calculateDiscount(discountPercent, priceBeforeDiscount) {
+    var discountAmount = 0;
+    discountAmount = discountPercent * priceBeforeDiscount;
+    return parseFloat (discountAmount);
+}
+
+function applyDiscount() {
+    var priceSubTotal = Number(prompt('What is the price? (without the $ symbol please)')).toFixed(2);
+    var percentDiscount = Number(prompt('What is the discount? (in decimal please)')).toFixed(2);
+    var calculatedDiscount = Number(calculateDiscount(priceSubTotal, percentDiscount).toFixed(2));
+    var priceWithDiscount = priceSubTotal - calculatedDiscount;
+    alert('The discount amount is $' + calculatedDiscount + ' so your price with discount is $' + priceWithDiscount);
+    return;
+}
+
+applyDiscount();
