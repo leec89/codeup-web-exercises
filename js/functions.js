@@ -13,6 +13,8 @@ function sayHello(greeting) {
     return alert('Hello, ' + greeting + '!')
 }
 
+console.log(sayHello('Chris'))
+
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
