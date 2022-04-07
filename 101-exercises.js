@@ -666,7 +666,6 @@ addToDone("Exercise 32 is correct.")
 
 
 
-
 // Exercise 33
 // Write a function definition named subtract that takes in two numbers and returns the first minus the second argument.
 
@@ -709,6 +708,7 @@ assert(divide(10, 2), 5, "Exercise 35");
 addToDone("Exercise 35 is correct.")
 
 
+
 // Exercise 36
 // Write a function definition named quotient that takes in two numbers and returns the quotient of dividing the first argument by the second argument.
 
@@ -720,6 +720,7 @@ assert(quotient(27, 9), 3, "Exercise 36");
 assert(quotient(5, 2), 2, "Exercise 36");
 assert(quotient(10, 3), 3, "Exercise 36");
 addToDone("Exercise 36 is correct.")
+
 
 
 // Exercise 37
@@ -765,6 +766,7 @@ assert(timesTwoPlusThree(5), 13, "Exercise 39");
 addToDone("Exercise 39 is correct.")
 
 
+
 // Exercise 40
 // Write a function definition named areaOfRectangle that takes in two numbers and returns the product.
 
@@ -793,6 +795,7 @@ assert(areaOfCircle(7), 153.93804002589985, "Exercise 41");
 addToDone("Exercise 41 is correct.")
 
 
+
 // Exercise 42
 // Write a function definition named circumference that takes in a number representing a circle's radius and returns the circumference.
 
@@ -804,6 +807,7 @@ assert(circumference(3), 18.84955592153876, "Exercise 42");
 assert(circumference(5), 31.41592653589793, "Exercise 42");
 assert(circumference(7), 43.982297150257104, "Exercise 42");
 addToDone("Exercise 42 is correct.")
+
 
 
 // In earlier exercises, the solution was to use a logical AND.
@@ -840,6 +844,7 @@ assert(isVowel("y"), false, "Exercise 43");
 addToDone("Exercise 43 is correct.")
 
 
+
 // Exercise 44
 // Write a function definition named hasVowels that takes in value and returns true if the string contains any vowels.
 
@@ -860,6 +865,7 @@ assert(hasVowels("ubuntu"), true, "Exercise 44");
 assert(hasVowels("QQQQ"), false, "Exercise 44");
 assert(hasVowels("wyrd"), false, "Exercise 44");
 addToDone("Exercise 44 is correct.")
+
 
 
 // Exercise 45
@@ -885,6 +891,7 @@ assert(countVowels("wyrd"), 0, "Exercise 45");
 addToDone("Exercise 45 is correct.")
 
 
+
 // Exercise 46
 // Write a function definition named removeVowels that takes in string and returns the string without any vowels
 
@@ -905,6 +912,7 @@ assert(removeVowels("ubuntu"), "bnt", "Exercise 46");
 assert(removeVowels("mango"), "mng", "Exercise 46");
 assert(removeVowels("QQQQ"), "QQQQ", "Exercise 46");
 addToDone("Exercise 46 is correct.")
+
 
 
 // Exercise 47
@@ -929,6 +937,7 @@ assert(startsWithVowel("mango"), false, "Exercise 47");
 addToDone("Exercise 47 is correct.")
 
 
+
 // Exercise 48
 // Write a function definition named endsWithVowel that takes in string and true if the string ends with a vowel
 
@@ -951,6 +960,7 @@ assert(endsWithVowel("banana"), true, "Exercise 48");
 assert(endsWithVowel("mango"), true, "Exercise 48");
 assert(endsWithVowel("spinach"), false, "Exercise 48");
 addToDone("Exercise 48 is correct.")
+
 
 
 // Exercise 49
@@ -983,6 +993,7 @@ assert(startsAndEndsWithVowel("mango"), false, "Exercise 49");
 addToDone("Exercise 49 is correct.")
 
 
+
 // Exercise 50
 // Write a function definition named first that takes in sequence and returns the first value of that sequence.
 
@@ -1001,7 +1012,6 @@ assert(first("ubuntu"), "u", "Exercise 50");
 assert(first([1, 2, 3]), 1, "Exercise 50");
 assert(first(["JS", "is", "awesome"]), "JS", "Exercise 50");
 addToDone("Exercise 50 is correct.")
-
 
 
 
@@ -1024,6 +1034,7 @@ assert(second(["JS", "is", "awesome"]), "is", "Exercise 51");
 addToDone("Exercise 51 is correct.")
 
 
+
 // Exercise 52
 // Write a function definition named third that takes in sequence and returns the third value of that sequence.
 
@@ -1044,6 +1055,7 @@ assert(third(["JS", "is", "awesome"]), "awesome", "Exercise 52");
 addToDone("Exercise 52 is correct.")
 
 
+
 // Exercise 53
 // Write a function definition named forth that takes in sequence and returns the forth value of that sequence.
 
@@ -1062,6 +1074,7 @@ assert(forth("ubuntu"), "n", "Exercise 53");
 assert(forth([1, 2, 3, 4]), 4, "Exercise 53");
 assert(forth(["JS", "is", "awesome", "right?"]), "right?", "Exercise 53");
 addToDone("Exercise 53 is correct.")
+
 
 
 // Exercise 54
@@ -1087,6 +1100,7 @@ assert(last(["kiwi", "mango", "guava"]), "guava", "Exercise 54");
 addToDone("Exercise 54 is correct.")
 
 
+
 // Exercise 55
 // Write a function definition named secondToLast that takes in sequence and returns the second to last value of that sequence.
 
@@ -1108,6 +1122,7 @@ assert(secondToLast([1, 2, 3, 4]), 3, "Exercise 55");
 assert(secondToLast(["JS", "is", "awesome"]), "is", "Exercise 55");
 assert(secondToLast(["kiwi", "mango", "guava"]), "mango", "Exercise 55");
 addToDone("Exercise 55 is correct.")
+
 
 
 // Exercise 56
@@ -1133,6 +1148,7 @@ assert(thirdToLast(["strawberry", "kiwi", "mango", "guava"]), "kiwi", "Exercise 
 addToDone("Exercise 56 is correct.")
 
 
+
 // Exercise 57
 // Write a function definition named firstAndSecond that takes in sequence and returns the first and second value of that sequence as an array
 
@@ -1145,6 +1161,7 @@ assert(firstAndSecond([1, 2, 3, 4]), [1, 2], "Exercise 57");
 assert(firstAndSecond(["JS", "is", "awesome"]), ["JS", "is"], "Exercise 57");
 assert(firstAndSecond(["strawberry", "kiwi", "mango", "guava"]), ["strawberry", "kiwi"], "Exercise 57");
 addToDone("Exercise 57 is correct.")
+
 
 
 // Exercise 58
@@ -1161,6 +1178,7 @@ assert(firstAndLast(["strawberry", "kiwi", "mango", "guava"]), ["strawberry", "g
 addToDone("Exercise 58 is correct.")
 
 
+
 // Exercise 59
 // Write a function definition named firstToLast that takes in sequence and returns the sequence with the first value moved to the end of the sequence.
 
@@ -1174,6 +1192,7 @@ assert(firstToLast([1, 2, 3, 4]), [2, 3, 4, 1], "Exercise 59");
 assert(firstToLast(["JS", "is", "awesome"]), ["is", "awesome", "JS"], "Exercise 59");
 assert(firstToLast(["strawberry", "kiwi", "mango", "guava"]), ["kiwi", "mango", "guava", "strawberry"], "Exercise 59");
 addToDone("Exercise 59 is correct.")
+
 
 
 // Exercise 60
@@ -1197,6 +1216,17 @@ addToDone("Exercise 60 is correct.")
 //  Exercise 61
 //  Write a function definition named mean that takes in sequence of numbers and returns the average value
 
+function mean (inputMean) {
+  var total = 0;
+  var mean = 0;
+  var inputMeanLength = inputMean.length
+  for (var x in inputMean) {
+    total += inputMean[x];
+  }
+  mean = total / inputMeanLength;
+  return mean;
+}
+
 assert(mean([1, 2, 3, 4]), 2.5, "Exercise 61");
 assert(mean([3, 3, 3]), 3, "Exercise 61");
 assert(mean([1, 5, 6]), 4, "Exercise 61");
@@ -1206,6 +1236,19 @@ addToDone("Exercise 61 is correct.")
 
 // Exercise 62
 // Write a function definition named median that takes in sequence of numbers and returns the average value
+
+function median (inputMedian) {
+  var median = 0;
+  var middleIndex = 0;
+  var inputMedianLength = inputMedian.length;
+  if (inputMedianLength % 2 !== 0) {                //if odd, find middle index and return number at middle index
+    middleIndex = Math.round(inputMedianLength/2) - 1;
+    return inputMedian[middleIndex];
+  } else {                                          //if even, calculate median from the average(using function mean) from numbers at middle and middle+1
+    middleIndex = inputMedianLength/2;
+    return mean([inputMedian[middleIndex-1], inputMedian[middleIndex]]);
+  }
+}
 
 assert(median([1, 2, 3, 4, 5]), 3.0, "Exercise 62");
 assert(median([1, 2, 3]), 2.0, "Exercise 62");
