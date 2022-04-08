@@ -35,10 +35,63 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
+function analyzeColor (inputColor) {
+    console.log(inputColor);
+    var redMessage = 'Red is the color of ketchup.';
+    var orangeMessage = 'Orange is the color of the Longhorns.';
+    var yellowMessage = 'Yellow is the color of the sun.';
+    var greenMessage = 'Green is the color of broccoli.';
+    var blueMessage = 'Blue is the color of the ocean.';
+    var noSaying = 'I don\'t know anything about ';
+    var message = '';
+    if (inputColor === 'red') {
+        message = redMessage;
+    } else if (inputColor === 'orange') {
+        message = orangeMessage;
+    } else if (inputColor === 'yellow') {
+        message = yellowMessage;
+    } else if (inputColor === 'green') {
+        message = greenMessage;
+    } else if (inputColor === 'blue') {
+        message = blueMessage;
+    } else {
+        message = noSaying + inputColor + '!';
+    }
+    return alert(message);
+}
+
+analyzeColor(randomColor);
+
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
+
+function analyzeColorWithCase (inputColor) {
+    console.log(inputColor);
+    switch (inputColor) {
+        case "red":
+            alert('Red is the color of ketchup.')
+            break;
+        case "orange":
+            alert('Orange is the color of Texas Longhorns.')
+            break;
+        case "yellow":
+            alert('Yellow is the color of the sun.')
+            break;
+        case "green":
+            alert('Green is the color of grass.')
+            break;
+        case "blue":
+            alert('Blue is the color of the ocean.')
+            break;
+        default:
+            alert("I don\'t know anything about " + inputColor + '!');
+    }
+    return;
+}
+
+analyzeColorWithCase(randomColor);
 
 /**
  * TODO:
@@ -46,6 +99,33 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+function analyzeColorWithPrompt (inputColorPrompt) {
+    console.log(inputColorPrompt);
+    switch (inputColorPrompt) {
+        case "red":
+            alert('Red is the color of ketchup.')
+            break;
+        case "orange":
+            alert('Orange is the color of Texas Longhorns.')
+            break;
+        case "yellow":
+            alert('Yellow is the color of the sun.')
+            break;
+        case "green":
+            alert('Green is the color of grass.')
+            break;
+        case "blue":
+            alert('Blue is the color of the ocean.')
+            break;
+        default:
+            alert("I don\'t know anything about " + inputColorPrompt + '!');
+    }
+    return;
+}
+
+var inputColorPrompt = prompt('What is your favorite color?');
+analyzeColorWithPrompt(inputColorPrompt);
 
 /* ########################################################################## */
 
@@ -69,6 +149,42 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
+var randomWalmartLuckyNum = Math.floor(Math.random() * 6);
+
+function calculateTotal(luckyNum, totalBeforeDisc) {
+    switch (luckyNum) {
+        case 1:
+            let disc10 = totalBeforeDisc * .1;
+            let amountToPay10 = totalBeforeDisc - disc10;
+            alert('You get a 10% discount of $' + disc10 + ' so instead of paying $' + totalBeforeDisc + ' you only have to pay $' + amountToPay10 + '!');
+            break;
+        case 2:
+            let disc25 = totalBeforeDisc * .25;
+            let amountToPay25 = totalBeforeDisc - disc25;
+            alert('You get a 25% discount of $' + disc25 + ' so instead of paying $' + totalBeforeDisc + ' you only have to pay $' + amountToPay25 + '!');
+            break;
+        case 3:
+            let disc35 = totalBeforeDisc * .35;
+            let amountToPay35 = totalBeforeDisc - disc35;
+            alert('You get a 35% discount of $' + disc35 + ' so instead of paying $' + totalBeforeDisc + ' you only have to pay $' + amountToPay35 + '!');
+            break;
+        case 4:
+            let disc50 = totalBeforeDisc * .5;
+            let amountToPay50 = totalBeforeDisc - disc50;
+            alert('You get a 50% discount of $' + disc50 + ' so instead of paying $' + totalBeforeDisc + ' you only have to pay $' + amountToPay50 + '!');
+            break;
+        case 5:
+            let disc100 = totalBeforeDisc;
+            alert('You get a 100% discount of $' + disc100 + ' so instead of paying $' + totalBeforeDisc + ' you pay nothing!');
+            break;
+        default:
+            alert('Sorry! You drew an unlucky number. No discount this time. Try again next time.');
+    }
+}
+
+var subTotalAmount = prompt('What was the amount at checkout?');
+calculateTotal(randomWalmartLuckyNum, subTotalAmount);
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -79,6 +195,10 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
+
+/**
+ * If you see the above solution, I did this. I guess I should have read ahead.
+ */
 
 /**
  * TODO:
