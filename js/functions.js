@@ -134,9 +134,9 @@ function calculateDiscount(discountPercent, priceBeforeDiscount) {
 }
 
 function applyDiscount() {
-    var priceSubTotal = Number(prompt('What is the price? (without the $ symbol please)')).toFixed(2);
-    var percentDiscount = Number(prompt('What is the discount? (in decimal please)')).toFixed(2);
-    var calculatedDiscount = Number(calculateDiscount(priceSubTotal, percentDiscount).toFixed(2));
+    var priceSubTotal = parseFloat(prompt('What is the price? (without the $ symbol please)')).toFixed(2);
+    var percentDiscount = parseFloat(prompt('What is the discount? (in decimal please)')).toFixed(2);
+    var calculatedDiscount = calculateDiscount(priceSubTotal, percentDiscount).toFixed(2);
     var priceWithDiscount = priceSubTotal - calculatedDiscount;
     alert('The discount amount is $' + calculatedDiscount + ' so your price with discount is $' + priceWithDiscount);
     return;
