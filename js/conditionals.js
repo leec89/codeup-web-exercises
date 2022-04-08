@@ -220,19 +220,11 @@ calculateTotal(randomWalmartLuckyNum, subTotalAmount);
  */
 
 function checkIfNaN(checkForNaN) {
-    if (isNaN(checkForNaN)) {
-        return true;
-    } else {
-        return false;
-    }
+    return isNaN(checkForNaN);
 }
 
 function checkOddEven(isItOddEven) {
-    if (isItOddEven % 2 === 0) {
-        return 'even';
-    } else {
-        return 'odd';
-    }
+    return (isItOddEven % 2 === 0) ? 'even' : 'odd';
 }
 
 function addHundred(toAdd100) {
@@ -240,11 +232,7 @@ function addHundred(toAdd100) {
 }
 
 function checkNegPos(isItOddPos) {
-    if (isItOddPos < 0) {
-        return 'negative';
-    } else {
-        return 'positive';
-    }
+    return (isItOddPos < 0) ? 'negative' : 'positive';
 }
 
 var askForNumber = confirm('Would you like to enter a number?');
