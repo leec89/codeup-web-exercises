@@ -1260,6 +1260,13 @@ addToDone("Exercise 62 is correct.")
 // Exercise 63
 // Write a function definition named maxMinusMin that takes in an array of numbers and returns the difference of the maximum minus theminimum.
 
+function maxMinusMin (inputArr) {
+  var sortArr = inputArr.sort();
+  var first = sortArr[0];
+  var last = sortArr[sortArr.length-1];
+  var difference = last - first;
+  return difference;
+}
 
 assert(maxMinusMin([1, 2, 2, 8, 3, 4]), 7, "Exercise 63");
 assert(maxMinusMin([1, 1, 2, 3, 9]), 8, "Exercise 63");
@@ -1267,8 +1274,17 @@ assert(maxMinusMin([2, 2, 3, 3, 3, 7]), 5, "Exercise 63");
 addToDone("Exercise 63 is correct.")
 
 
+
 // Exercise 64
 // Write a function definition named productOfAll that takes in sequence of numbers and returns the product of multiplying all the numbers together
+
+function productOfAll (inputArr) {
+  var productTotal = 1;
+  for (var x in inputArr) {
+    productTotal *= inputArr[x];
+  }
+  return productTotal;
+}
 
 assert(productOfAll([1, 2, 3]), 6, "Exercise 64");
 assert(productOfAll([3, 4, 5]), 60, "Exercise 64");
@@ -1276,9 +1292,14 @@ assert(productOfAll([2, 2, 3, 0]), 0, "Exercise 64");
 addToDone("Exercise 64 is correct.")
 
 
+
 // Exercise 65
 // Write a function definition named getHighestNumber that takes in sequence of numbers and returns the largest number.
 
+function getHighestNumber (inputArr) {
+  var sortArr = inputArr.sort();
+  return sortArr[sortArr.length-1];
+}
 
 assert(getHighestNumber([1, 2, 3]), 3, "Exercise 65");
 assert(getHighestNumber([1, 5, 2, 3, 4]), 5, "Exercise 65");
@@ -1287,10 +1308,13 @@ addToDone("Exercise 65 is correct.")
 
 
 
-
 // Exercise 66
 // Write a function definition named getSmallestNumber that takes in sequence of numbers and returns the smallest number.
 
+function getSmallestNumber (inputArr) {
+  var sortArr = inputArr.sort();
+  return sortArr[0];
+}
 
 assert(getSmallestNumber([1, 2, 3]), 1, "Exercise 66");
 assert(getSmallestNumber([3, 5, 9, 8, 1]), 1, "Exercise 66");
@@ -1301,6 +1325,16 @@ addToDone("Exercise 66 is correct.")
 // Exercise 67
 // Write a function definition named onlyOddNumbers that takes in sequence of numbers and returns the odd numbers in an array.
 
+function onlyOddNumbers (inputArr) {
+  var newArr = [];
+  for (var x in inputArr) {
+    if (inputArr[x] % 2 !== 0) {
+      newArr.push(inputArr[x])
+    }
+  }
+  return newArr;
+}
+
 assert(onlyOddNumbers([1, 2, 3]), [1, 3], "Exercise 67");
 assert(onlyOddNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-5, -3, -1, 1, 3, 5], "Exercise 67");
 assert(onlyOddNumbers([-4, -3, 1]), [-3, 1], "Exercise 67");
@@ -1310,6 +1344,16 @@ addToDone("Exercise 67 is correct.")
 
 // Exercise 68
 // Write a function definition named onlyEvenNumbers that takes in sequence of numbers and returns the even numbers in an array.
+
+function onlyEvenNumbers (inputArr) {
+  var newArr = [];
+  for (var x in inputArr) {
+    if (inputArr[x] % 2 === 0) {
+      newArr.push(inputArr[x])
+    }
+  }
+  return newArr;
+}
 
 assert(onlyEvenNumbers([1, 2, 3]), [2], "Exercise 68");
 assert(onlyEvenNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-4, -2, 2, 4], "Exercise 68");
