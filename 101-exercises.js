@@ -1688,6 +1688,16 @@ addToDone("Exercise 84 is correct.")
 // Exercise 85
 // Write a function named flatten that takes in an array of arrays. Return the flattened array.
 
+function flatten (inputArr) {
+  var newArr = [];
+  for (var x in inputArr) {
+    var insideInputArr = inputArr[x];
+    for (var y in insideInputArr) {
+      newArr.push(insideInputArr[y])
+    }
+  }
+  return newArr;
+}
 
 assert(flatten([[1, 2], [3, 4], [5, 6]]), [1, 2, 3, 4, 5, 6], "Exercise 85");
 assert(flatten([[1, 2, 3], [1, 2, 3], [1, 2, 3]]), [1, 2, 3, 1, 2, 3, 1, 2, 3], "Exercise 85");
