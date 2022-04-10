@@ -1631,6 +1631,16 @@ addToDone("Exercise 81 is correct.")
 // Exercise 82
 // Write a function definition named longestString that takes in sequence of strings and returns the longest string in the array.
 
+function longestString (inputArr) {
+  var longestStr = inputArr[0];
+  for (var x = 1; x < inputArr.length; x++){
+    if (inputArr[x].length > longestStr.length) {
+      longestStr = inputArr[x];
+    }
+  }
+  return longestStr;
+}
+
 assert(longestString(["kiwi", "mango", "strawberry"]), "strawberry", "Exercise 82");
 assert(longestString(["hello", "everybody"]), "everybody", "Exercise 82");
 assert(longestString(["mary", "had", "a", "little", "lamb"]), "little", "Exercise 82");
