@@ -1670,6 +1670,14 @@ addToDone("Exercise 83 is correct.")
 // Exercise 84
 // Write a function definition named elementsTimesTwo that takes in an array of numbers and returns an array with each value multiplied by 2.
 
+function elementsTimesTwo (inputArr) {
+  var newArr = [];
+  for (var x in inputArr) {
+    newArr.push(inputArr[x] * 2)
+  }
+  return newArr;
+}
+
 
 assert(elementsTimesTwo([1, 2, 3]), [2, 4, 6], "Exercise 84")
 assert(elementsTimesTwo([0, 0, 0]), [0, 0, 0], "Exercise 84")
