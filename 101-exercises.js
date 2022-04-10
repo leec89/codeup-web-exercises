@@ -1709,6 +1709,14 @@ addToDone("Exercise 85 is correct.")
 // Exercise 86
 // Write a function definition named addOneToArray that adds one to every number in an array
 
+function addOneToArray (inputArr) {
+  var newArr = [];
+  for (var x in inputArr) {
+    newArr.push(inputArr[x] + 1)
+  }
+  return newArr;
+}
+
 assert(addOneToArray([1, 2, 3]), [2, 3, 4], "Exercise 86");
 assert(addOneToArray([4, 4, 4]), [5, 5, 5], "Exercise 86");
 assert(addOneToArray([9, 10, 11]), [10, 11, 12], "Exercise 86");
