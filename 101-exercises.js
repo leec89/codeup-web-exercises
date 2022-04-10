@@ -1491,6 +1491,16 @@ addToDone("Exercise 74 is correct.")
 // Exercise 75
 // Write a function definition named countNegatives that takes in sequence of numbers and returns a count of the number of negative numbers
 
+function countNegatives (inputArr) {
+  var negCount = 0;
+  for (var x in inputArr) {
+    if (inputArr[x] < 0) {
+      negCount++;
+    }
+  }
+  return negCount;
+}
+
 assert(countNegatives([1, -2, 3]), 1, "Exercise 75");
 assert(countNegatives([2, -5, -6]), 2, "Exercise 75");
 assert(countNegatives([3, 3, 3]), 0, "Exercise 75");
