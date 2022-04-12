@@ -94,8 +94,10 @@
         //     C. Log the sum of all the incrementer values (0+1+2+3….) after the loop has completed.
 
         var total = 0;
-        for (var x = 0; x <= 50; x++) {
+        for (var x = 0; x < 50; x++) {
             total += x;
+            console.log('current iteration is ' + (x+1));
+            console.log('current total is ' + total);
         }
         console.log('Total is ' + total);
 
