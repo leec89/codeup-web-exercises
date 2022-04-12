@@ -57,7 +57,7 @@
         do {
             console.log('incrementor is ' + incrementor);
             incrementor += 2;
-        } while (incrementor <= 20);
+        } while (incrementor <= 10);
 
         // 2.   Create a do-while loop that console logs the number if it's odd.
         //      A. Create a variable called number and increment it by one on each run of the loop.
@@ -65,10 +65,13 @@
         //      C. End the loop when the number reaches 50.
 
         var number = 0;
-
+        console.log('number is ' + number);
         do {
-            console.log('number is ' + number);
-            if (number % 2 !== 0) console.log('this number is odd: ' + number);
+            if (number % 2 !== 0) {
+                console.log('this number is odd: ' + number);
+            } else {
+                console.log('number is ' + number);
+            }
             number++;
         } while (number <= 50);
 
@@ -79,13 +82,22 @@
         //      B. It will print out the number if it's divisible by five evenly.
         //      C. If it's both A and B then it should print out the string "BOTH" instead of the number for that iteration.
 
+        for (var x = 100; x > 0; x--) {
+            if (x % 2 === 0) console.log('Even number: ' + x);
+            if (x % 5 === 0) console.log('Divisible by 5: ' + x);
+            if ((x % 2 === 0) && (x % 5 === 0)) console.log('BOTH divisible by 2 and 5');
+        }
 
         // 2. Create a for loop that runs 50 times with an increment variable starting at zero.
         //     A. Create a variable called total to store the total value of the incrementer.
         //     B. Log the current total  on each loop.
         //     C. Log the sum of all the incrementer values (0+1+2+3….) after the loop has completed.
 
-
+        var total = 0;
+        for (var x = 0; x <= 50; x++) {
+            total += x;
+        }
+        console.log('Total is ' + total);
 
     })();
 
