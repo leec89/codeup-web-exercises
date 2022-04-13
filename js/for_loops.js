@@ -56,12 +56,24 @@ for (var x = 1; x <= 10; x++) {
  *
  */
 
-for (var x = 1; x <=9; x++) {
-    var blankStr = ' '
-    for (var y = 1; y <= x; y++) {
+// First solution - nested for loops
+for (let x = 1; x <=9; x++) {
+    let blankStr = ' ';
+    for (let y = 1; y <= x; y++) {
         blankStr = blankStr + x;
     }
     console.log(blankStr)
+}
+
+// Second solution - outer for loop, inner while loop
+for (let x = 1; x <=9; x++) {
+    let outputStr = ' ';
+    let y = x;
+    while (y > 0) {
+        outputStr = outputStr + x;
+        y--;
+    }
+    console.log(outputStr);
 }
 
 /**
