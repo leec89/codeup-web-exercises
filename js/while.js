@@ -24,6 +24,10 @@
  *
  */
 
+console.log('') // break in console.log
+console.log('Power of 2 list')
+
+console.log('First solution with two variables')
 var count = 1;
 var total = 2
 console.log(total);
@@ -32,6 +36,21 @@ while (count < 16) {
     count++
 }
 
+console.log('Second solution with one variable')
+var total2 = 2;
+while (total2 <= 65536) {
+    console.log(total2)
+    total2 = total2*2
+}
+
+console.log('Third solution with exponent')
+var expo = 1;
+var total3 = 2;
+while (total3 < 65536) {
+    total3 = 2**expo
+    console.log(total3)
+    expo++
+}
 /**
  *
  * Do While Loop

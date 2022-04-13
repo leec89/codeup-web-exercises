@@ -39,6 +39,10 @@
  *
  */
 
+console.log('') // break in console.log
+
+// use a boolean condition to check for odd
+console.log('Use a boolean condition to check for odd')
 var askOddValid = false
 while (askOddValid === false) {
     var askOdd = parseInt(prompt('Please enter an odd number between 1 and 50.'));
@@ -49,6 +53,27 @@ while (askOddValid === false) {
 console.log('Number to skip ' + askOdd);
 for (var x = 1; x < 50; x += 2) {
     if (x === askOdd) {
+        console.log('Yikes, skipping number ' + x);
+        continue;
+    } else {
+        console.log('Here is an odd number: ' + x);
+    }
+}
+
+console.log('') // break in console.log
+
+// used a break in the while loop
+console.log('used a break in the while loop')
+var askOddValid2 = false
+while (askOddValid2 === false) {
+    var askOdd2 = parseInt(prompt('Please enter an odd number between 1 and 50.'));
+    if (askOdd2 % 2 !== 0) {
+        break;
+    }
+}
+console.log('Number to skip ' + askOdd2);
+for (var x = 1; x < 50; x += 2) {
+    if (x === askOdd2) {
         console.log('Yikes, skipping number ' + x);
         continue;
     } else {

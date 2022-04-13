@@ -18,6 +18,7 @@ function showMultiplicationTable(inputForMultTable) {
     }
 }
 
+console.log('Multiplication Tables with prompt')
 var toMakeMultiplyTable = prompt('Please enter a number to get multiplication tables')
 showMultiplicationTable(toMakeMultiplyTable);
 
@@ -27,6 +28,8 @@ showMultiplicationTable(toMakeMultiplyTable);
  *
  */
 
+console.log('') // break in console.log
+console.log('Generate 10 random numbers - check if even or odd')
 var random20to200 = 0;
 
 for (var x = 1; x <= 10; x++) {
@@ -56,7 +59,11 @@ for (var x = 1; x <= 10; x++) {
  *
  */
 
+console.log('') // break in console.log
+console.log('Number tree')
+
 // First solution - nested for loops
+console.log('First solution - nested for loops');
 for (let x = 1; x <=9; x++) {
     let blankStr = ' ';
     for (let y = 1; y <= x; y++) {
@@ -66,6 +73,7 @@ for (let x = 1; x <=9; x++) {
 }
 
 // Second solution - outer for loop, inner while loop
+console.log('Second solution - outer for loop, inner while loop')
 for (let x = 1; x <=9; x++) {
     let outputStr = ' ';
     let y = x;
@@ -103,6 +111,9 @@ for (let x = 1; x <=9; x++) {
  * 5
  *
  */
+
+console.log('') // break in console.log
+console.log('Countdown from 100 by 5')
 
 for (var x = 100; x > 0; x -= 5) {
     console.log(x)
