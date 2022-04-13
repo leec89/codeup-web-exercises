@@ -84,6 +84,14 @@ for (let x = 1; x <=9; x++) {
     console.log(outputStr);
 }
 
+// Solution given in class (minus wrapping in function)
+
+console.log('Class solution - toString and repeat methods')
+for (let x = 1; x <=9; x++) {
+    var string = x.toString().repeat(x)
+    console.log(string)
+}
+
 /**
  *
  * Create a for loop that uses console.log to create the output shown below.
