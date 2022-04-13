@@ -77,7 +77,7 @@ function randomNumber(inputNum) {
 console.log('function randomNumber')
 console.log(randomNumber(10));
 console.log(randomNumber(10));
-console.log(randomNumber(10));  //type coercion going on
+console.log(randomNumber(10));
 console.log(randomNumber(10));
 console.log('') //break
 /**
@@ -85,10 +85,15 @@ console.log('') //break
  **/
 
 function stringToLength (inputStr) {
-    return string.toString().length;
+    return inputStr.toString().length;
 }
 
-
+console.log('function stringToLength')
+console.log(stringToLength('Hello World!'), 12);
+console.log(stringToLength(true), 4);
+console.log(stringToLength(10), 2);
+console.log(stringToLength('1000'), 4);
+console.log('') //break
 
 /**
  * Write a function that takes in two strings. The second string should be a single character. The function should return the index of the second input in the first input. If the second input is more than one character or is not in the first input at all, it should return false.
@@ -98,5 +103,12 @@ function indexOfCharacter(input1, input2) {
     if (input2.length > 1 || input1.indexOf(input2) === -1) {
         return false;
     }
-    return  input1.indexOf(input);
+    return input1.indexOf(input2);
 }
+
+console.log('function indexOfCharacter')
+console.log(indexOfCharacter('Hello World!','o'), 'index 4');
+console.log(indexOfCharacter('asdfasdf', 'g'), false);
+console.log(indexOfCharacter('asdfasdf', 'as'), false);
+console.log(indexOfCharacter('1000', '0'), 'index 1');
+console.log('') //break
