@@ -23,10 +23,10 @@
      * accessing each element's index.
      */
 
-    console.log('1. ' + names[0]);
-    console.log('1. ' + names[1]);
-    console.log('1. ' + names[2]);
-    console.log('1. ' + names[3]);
+    console.log('1. Name at index 0: ' + names[0]);
+    console.log('2. Name at index 1: ' + names[1]);
+    console.log('3. Name at index 2: ' + names[2]);
+    console.log('4. Name at index 3: ' + names[3]);
 
     /**
      * TODO:
@@ -35,7 +35,7 @@
      */
 
     for (var x = 0; x < names.length; x++) {
-        console.log('Name at index ' + x + ' is ' + names[x]);
+        console.log('Name at index ' + x + ': ' + names[x]);
     }
 
     /**
@@ -43,9 +43,21 @@
      * Refactor your above code to use a `forEach` loop
      */
 
-    forEach (var x in names) {
-        console.log('Name at index ' + x + ' is ' + names[x]);
-    }
+    names.forEach(function (name, index) {
+        console.log('Name is ' + name + ' at index ' + index);
+    });
+    //
+    // var values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    //
+    // function returnArrSum(values) {
+    //     var sumAll = 0;
+    //     values.forEach(function (value) {
+    //         sumAll = sumAll + value;
+    //     })
+    //     return console.log(sumAll);
+    // }
+    //
+    // returnArrSum(values);
 
     /**
      * TODO:
