@@ -37,7 +37,6 @@ for (var x = 1; x <= 10; x++) {
     if (random20to200 % 2 === 0) {
         console.log('The random number generated is ' + random20to200 + ' and the number is even!');
     } else {
-
         console.log('The random number generated is ' + random20to200 + ' and the number is odd!');
     }
 }

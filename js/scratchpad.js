@@ -1,58 +1,59 @@
-/**
- * TODO:
- * Write some JavaScript that uses a `confirm` dialog to ask the user if they
- * would like to enter a number. If they click 'Ok', prompt the user for a
- * number, then use 3 separate alerts to tell the user:
- *
- * - whether the number is even or odd
- * - what the number plus 100 is
- * - if the number is negative or positive
- *
- * Do *NOT* display any of the above information
- * if the user enters a value that is not of the number data type.
- * Instead, use an alert to inform them of the incorrect input data type.
- *
- *
- * Can you refactor your code to use functions?
- * HINT: The way we prompt for a value could be improved
- */
+"use strict";
 
-function checkIfNumber(checkNum) {
-    if (typeof checkNum === 'number') {
-        return true;
-    } else {
-        return false;
+// example given as instruction
+var pies = ['apple', 'cherry', 'key lime', 'huckleberry'];
+function logElements(element) {
+    console.log('Element ' + element);
+}
+pies.forEach(logElements);
+
+// example of generic forEach done as a for loop
+// function kindLikeThis(callback) {
+//     for (var i = 0; i < elements.length; i += 1) {
+//         callback(element[i], i, pies);
+//     }
+// }
+// elements.forEach(function (_, index) {
+//     console.log(index);
+// });
+
+// actual exercise problem
+var numbers = [7, 5, 2, 4];
+function logNums(numbers) {
+    // for (var i = 0; i < numbers.length; i += 1) {
+    //   console.log(numbers[i]);
+    // }
+
+    numbers.forEach(function (number) {
+        console.log(number);
+    });
+}
+logNums(numbers);
+
+
+var phoneNums = '210-555-2020\n230-555-2020\n512-555-3030';
+function cleanPhoneNumbers(phoneNumbers) {
+    var scrubNumbers = phoneNumbers.split('\n');
+    for (var x in scrubNumbers) {
+        console.log(scrubNumbers[x]);
     }
 }
+cleanPhoneNumbers(phoneNums);
 
-function checkOddEven(isItOddEven) {
-    if (isItOddEven % 2 === 0) {
-        return 'even';
-    } else {
-        return 'odd';
-    }
+function cleanPhoneNumsForEach (arrPhoneNums) {
+    var scrubbedNums = arrPhoneNums.split('\n');
+    scrubbedNums.forEach(function (phoneNum) {
+        console.log(phoneNum);
+    })
+}
+cleanPhoneNumsForEach(phoneNums);
+
+function logInput (inputToLog) {
+    console.log(inputToLog);
 }
 
-function addHundred(toAdd100) {
-    return 100 + toAdd100;
-}
+numbers.forEach(function (number, index, array) {
+    logInput(number + ' is at index ' + index + ' in array ' + array);
+});
 
-function checkNegPos(isItOddPos) {
-    if (isItOddPos < 0) {
-        return 'negative';
-    } else {
-        return 'positive';
-    }
-}
-
-var askForNumber = confirm('Would you like to enter a number?');
-if (askForNumber) {
-    var promptNumber = parseFloat(prompt('Please enter a number'));
-    if (checkIfNumber(promptNumber)) {
-        alert('It\'s an ' + checkOddEven(promptNumber) + ' number.');
-        alert('Adding 100 to your number gives you ' + addHundred(promptNumber) + '.');
-        alert('It\'s a ' + checkNegPos(promptNumber) + ' number.');
-    } else {
-        alert('Sorry, that\'s not a number!')
-    }
-}
+numbers.forEach(logInput);
