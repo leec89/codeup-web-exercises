@@ -21,4 +21,4 @@ var test = stringTest.toUpperCase();
 
 console.log(stringTest);
 console.log(stringCopy);
-console.log(test)
+console.log(test);
