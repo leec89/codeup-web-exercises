@@ -71,6 +71,7 @@ while (askOddValid2 === false) {
         break;
     }
 }
+
 console.log('Number to skip ' + askOdd2);
 for (var x = 1; x < 50; x += 2) {
     if (x === askOdd2) {
