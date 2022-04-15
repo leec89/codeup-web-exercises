@@ -32,7 +32,5 @@
      */
 
     document.write(planetsWithBreakTags);
-
-
-
+    
 // })();
