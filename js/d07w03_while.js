@@ -51,6 +51,7 @@ while (total3 < 65536) {
     console.log(total3)
     expo++
 }
+
 /**
  *
  * Do While Loop
