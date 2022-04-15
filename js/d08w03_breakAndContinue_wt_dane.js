@@ -1,4 +1,4 @@
-// Create a file named break_and_continue.js in the js directory.
+// Create a file named d09w03_break_and_continue.js in the js directory.
 
 
 //    Prompt the user for an odd number between 1 and 50. Use a loop and a break statement to continue prompting the

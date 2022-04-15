@@ -1,4 +1,4 @@
-// Create a file named while.js in the js directory.
+// Create a file named d07w03_while.js in the js directory.
 // Create a while loop that uses console.log() to create the output shown below.
 
 function doubleNumber(start, max) {

@@ -1,17 +1,17 @@
 // (function(){
     "use strict";
 
-    var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
+    var d10w03_planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
     var planetsArray;
 
     /**
      * TODO:
-     * Convert planetsString to an array, and save it in a variable named
+     * Convert d10w03_planetsString to an array, and save it in a variable named
      * planetsArray.
      * console.log planetsArray to check your work
      */
 
-    planetsArray = planetsString.split('|');
+    planetsArray = d10w03_planetsString.split('|');
     console.log(planetsArray);
 
     /**
