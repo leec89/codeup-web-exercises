@@ -19,6 +19,7 @@
 
     console.log(person.firstName) // "Rick"
     console.log(person.lastName) // "Sanchez"
+    console.log('******************************************************') //break between TODOs
 
     /**
      * TODO:
@@ -43,6 +44,7 @@
     person.sayHelloWithInputs(person.firstName, person.lastName);
     // person.sayHelloWithInputs(this.firstName, this.lastName);  //why not?
     person.sayHelloWithThis();
+    console.log('******************************************************') //break between TODOs
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -74,6 +76,7 @@
             console.log(shopperName + '\'s amount of $' + shopperAmt.toFixed(2) + ' does not qualify for any discount.');
         }
     })
+    console.log('******************************************************') //break between TODOs
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -130,6 +133,7 @@
     console.log(books[0].title); //
     console.log(books[0].author.firstName) //
     console.log(books[0].author.lastName) //
+    console.log('******************************************************') //break between TODOs
 
     /**
      * TODO:
@@ -169,6 +173,7 @@
             console.log('----------------')
         };
     })
+    console.log('******************************************************') //break between TODOs
 
     /**
      * Bonus:
@@ -222,6 +227,7 @@
     console.log(bookArrOfObjs);
 
     showBookInfo(bookArrOfObjs);
+    console.log('******************************************************') //break between TODOs
 
     // A slightly different way based on an array of books by authors given but reusing functions from above
 
