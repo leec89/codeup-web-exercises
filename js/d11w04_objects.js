@@ -180,18 +180,63 @@
      *   `showBookInfo` function.
      */
 
-    var booklist = {};
-    function createBook (inputTitle, inputAuthorName, booklist) {
-        booklist.title = inputTitle;
-        var authorArr = inputAuthorName.split(' ');
-        booklist.firstName = authorArr[0];
-        booklist.lastName = authorArr[1];
-        return booklist;
+    var bookArrOfObjs = [];
+
+    function buildBooksArr (inputBookObj, booksArr) {
+        booksArr.push(inputBookObj);
+        return booksArr;
     }
 
-    createBook('The Da Vinci Code', 'Dan Brown', booklist);
-    createBook('And Then There Were None', 'Agatha Christie', booklist);
-    console.log(booklist);
+    function createBook (inputTitle, inputAuthorName) {
+        var bookObj = {};
+        bookObj.title = inputTitle;
+        var authorArr = inputAuthorName.split(' ');
+        bookObj.author = {};
+        bookObj.author.firstName = authorArr[0];
+        bookObj.author.lastName = authorArr[1];
+        return bookObj;
+    }
+
+    function logBooks(inputArrOfBooks) {
+        inputArrOfBooks.forEach(function(book, index, array) {
+            var bookOrder = index + 1;
+            var endOfList = array.length;
+            var bookTitle = book.title;
+            var authorFirst = book.author.firstName;
+            var authorLast = book.author.lastName;
+            console.log('Book #', bookOrder);
+            console.log('Title:', bookTitle);
+            console.log('Author:', authorFirst, authorLast );
+            if (index !== endOfList - 1) {
+                console.log('----------------')
+            };
+        })
+    }
+
+    buildBooksArr(createBook('The Da Vinci Code', 'Dan Brown'), bookArrOfObjs);
+    buildBooksArr(createBook('And Then There Were None', 'Agatha Christie'), bookArrOfObjs);
+    buildBooksArr(createBook('The Lion, the Witch and the Wardrobe', 'C.S. Lewis'), bookArrOfObjs);
+    buildBooksArr(createBook('The Catcher in the Rye','J.D. Salinger'), bookArrOfObjs);
+    buildBooksArr(createBook('The Eagle Has Landed', 'Jack Higgins'), bookArrOfObjs);
+    console.log(bookArrOfObjs);
+
+    logBooks(bookArrOfObjs);
+
+    // A slightly different way based on an array of books by authors given
+
+    var arrayBooksAndAuthors = ['Harry Potter & the Chamber of Secrets by J.K. Rowling', 'The Da Vinci Code by Dan Brown', 'And Then There Were None by Agatha Christie', 'The Lion, the Witch and the Wardrobe by C.S. Lewis','The Catcher in the Rye by J.D. Salinger', 'The Eagle Has Landed by Jack Higgins'];
+
+    var newBookArrOfObjs = [];
+
+    arrayBooksAndAuthors.forEach(function(bookAndAuthor, index,array, newBookArrOfObjs) {
+        var splitTitleFromAuthor = bookAndAuthor.split(' by ');
+        var bookTitle = splitTitleFromAuthor[0];
+        var bookAuthor = splitTitleFromAuthor[1];
+        buildBooksArr(createBook(bookTitle, bookAuthor), newBookArrOfObjs);
+        console.log(newBookArrOfObjs);
+    })
+
+    logBooks(newBookArrOfObjs);
 
 
 })();
