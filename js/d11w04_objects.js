@@ -41,6 +41,7 @@
 
     person.sayHello();
     person.sayHelloWithInputs(person.firstName, person.lastName);
+    // person.sayHelloWithInputs(this.firstName, this.lastName);  //why not?
     person.sayHelloWithThis();
 
     /** TODO:
@@ -197,7 +198,7 @@
         return bookObj;
     }
 
-    function logBooks(inputArrOfBooks) {
+    function showBookInfo(inputArrOfBooks) {
         inputArrOfBooks.forEach(function(book, index, array) {
             var bookOrder = index + 1;
             var endOfList = array.length;
@@ -214,29 +215,33 @@
     }
 
     buildBooksArr(createBook('The Da Vinci Code', 'Dan Brown'), bookArrOfObjs);
-    buildBooksArr(createBook('And Then There Were None', 'Agatha Christie'), bookArrOfObjs);
+    buildBooksArr(createBook('Murder on the Orient Express', 'Agatha Christie'), bookArrOfObjs);
     buildBooksArr(createBook('The Lion, the Witch and the Wardrobe', 'C.S. Lewis'), bookArrOfObjs);
     buildBooksArr(createBook('The Catcher in the Rye','J.D. Salinger'), bookArrOfObjs);
     buildBooksArr(createBook('The Eagle Has Landed', 'Jack Higgins'), bookArrOfObjs);
     console.log(bookArrOfObjs);
 
-    logBooks(bookArrOfObjs);
+    showBookInfo(bookArrOfObjs);
 
-    // A slightly different way based on an array of books by authors given
+    // A slightly different way based on an array of books by authors given but reusing functions from above
 
-    var arrayBooksAndAuthors = ['Harry Potter & the Chamber of Secrets by J.K. Rowling', 'The Da Vinci Code by Dan Brown', 'And Then There Were None by Agatha Christie', 'The Lion, the Witch and the Wardrobe by C.S. Lewis','The Catcher in the Rye by J.D. Salinger', 'The Eagle Has Landed by Jack Higgins'];
+    var arrayBooksAndAuthors = ['Harry Potter & the Chamber of Secrets by J.K. Rowling', 'The Da Vinci Code by Dan Brown', 'Murder on the Orient Express by Agatha Christie', 'The Lion, the Witch and the Wardrobe by C.S. Lewis','The Catcher in the Rye by J.D. Salinger', 'The Eagle Has Landed by Jack Higgins'];
 
     var newBookArrOfObjs = [];
 
-    arrayBooksAndAuthors.forEach(function(bookAndAuthor, index,array, newBookArrOfObjs) {
-        var splitTitleFromAuthor = bookAndAuthor.split(' by ');
-        var bookTitle = splitTitleFromAuthor[0];
-        var bookAuthor = splitTitleFromAuthor[1];
-        buildBooksArr(createBook(bookTitle, bookAuthor), newBookArrOfObjs);
-        console.log(newBookArrOfObjs);
-    })
+    function rfArrBooksToArrObj (inputArrOfBooks, outputArrOfBookObjs) {
+        inputArrOfBooks.forEach(function (bookAndAuthor) {
+            var splitTitleFromAuthor = bookAndAuthor.split(' by ');
+            var bookTitle = splitTitleFromAuthor[0];
+            var bookAuthor = splitTitleFromAuthor[1];
+            buildBooksArr(createBook(bookTitle, bookAuthor), outputArrOfBookObjs);
+            return outputArrOfBookObjs;
+        })
+    }
 
-    logBooks(newBookArrOfObjs);
+    rfArrBooksToArrObj(arrayBooksAndAuthors, newBookArrOfObjs);
+    console.log(newBookArrOfObjs);
 
+    showBookInfo(newBookArrOfObjs);
 
 })();
