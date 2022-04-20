@@ -1980,6 +1980,14 @@ addToDone("Exercise 97 is complete.")
 // Write a function named totalNumberOfItems that takes in the shopping cart as input and returns the total number all item quantities.
 // This should return the sum of all of the quantities from each item type
 
+function totalNumberOfItems (inputObj) {
+  var totalItems = 0;
+  inputObj.items.forEach(function (itemObj) {
+    totalItems += itemObj.quantity
+  })
+  return totalItems;
+}
+
 assert(totalNumberOfItems(shoppingCart), 17, "Exercise 98");
 addToDone("Exercise 98 is complete.")
 
