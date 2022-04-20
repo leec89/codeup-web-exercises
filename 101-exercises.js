@@ -1774,8 +1774,14 @@ const book = {
   "author": "Frances Buontempo"
 }
 
+
+
 // Exercise 89
 // Write a function named getPrice that takes in a object and returns the price
+
+function getPrice (inputObj) {
+  return inputObj.price;
+}
 
 assert(getPrice(book), 36.99, "Exercise 89");
 addToDone("Exercise 89 is complete.")
@@ -1786,12 +1792,16 @@ addToDone("Exercise 89 is complete.")
 // Write a function named getBookAuthor that takes in a object (the above declared book variable) and returns the author's name
 
 
+function getBookAuthor (inputObj) {
+  return inputObj.author;
+}
+
 assert(getBookAuthor(book), "Frances Buontempo", "Exercise 90");
 addToDone("Exercise 90 is complete.")
 
 
 // The next exercises work with a arrays of objects.
-// You'll see arrays of objects over and over again with data in a program. 
+// You'll see arrays of objects over and over again with data in a program.
 // Here is our arrays of objects.
 const books = [
   {
@@ -1817,8 +1827,13 @@ const books = [
 ]
 
 
+
 // Exercise 91
 // Write a function named getNumberOfBooks that takes in a array of objects and returns the number of objects in that array.
+
+function getNumberOfBooks (inputArr) {
+  return inputArr.length;
+}
 
 assert(getNumberOfBooks(books), 4, "Exercise 91");
 addToDone("Exercise 91 is complete.")
@@ -1828,8 +1843,17 @@ addToDone("Exercise 91 is complete.")
 // Exercise 92
 // Write a function named totalOfBookPrices that takes in a array of objects and returns the sum total of all the book prices added together
 
+function totalOfBookPrices (inputArr) {
+  var totalPrice = 0;
+  inputArr.forEach (function (book) {
+    totalPrice += book.price;
+  })
+  return totalPrice;
+}
+
 assert(totalOfBookPrices(books), 122.9, "Exercise 92")
 addToDone("Exercise 92 is complete.")
+
 
 
 // Exercise 93
@@ -1838,10 +1862,29 @@ addToDone("Exercise 92 is complete.")
 assert(getAverageBookPrice(books), 30.725, "Exercise 93");
 addToDone("Exercise 93 is complete.")
 
+function getAverageBookPrice (inputArr) {
+  var totalPrice = 0;
+  inputArr.forEach (function (book) {
+    totalPrice += book.price;
+  })
+  return totalPrice / inputArr.length;
+}
+
+
 
 // Exercise 94
 // Write a function called highestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the highest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero, you may want to create a object with the price set to zero to compare to each object's price in the array
+
+function highestPriceBook (inputArr) {
+  var highestPriceBookObj = inputArr[0];
+  for (var i = 1; i < inputArr.length; i++) {
+    if (inputArr[i].price > highestPriceBookObj.price) {
+      highestPriceBookObj = inputArr[i];
+    }
+  }
+  return highestPriceBookObj;
+}
 
 assert(highestPriceBook(books), {
   "title": "The Visual Display of Quantitative Information",
@@ -1857,6 +1900,15 @@ addToDone("Exercise 94 is complete")
 // Write a function called lowestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the lowest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero or float('inf'), you may want to create a object with the price set to float('inf') to compare to each object in the array
 
+function lowestPriceBook (inputArr) {
+  var lowestPriceBookObj = inputArr[0];
+  for (var i = 1; i < inputArr.length; i++) {
+    if (inputArr[i].price < lowestPriceBookObj.price) {
+      lowestPriceBookObj = inputArr[i];
+    }
+  }
+  return lowestPriceBookObj;
+}
 
 assert(lowestPriceBook(books), {
   "title": "Weapons of Math Destruction",
@@ -1864,6 +1916,7 @@ assert(lowestPriceBook(books), {
   "price": 17.44
 }, "Exercise 95");
 addToDone("Exercise 95 is complete.")
+
 
 
 const shoppingCart = {
@@ -1896,7 +1949,6 @@ const shoppingCart = {
     }
   ]
 }
-
 
 // Exercise 96
 // Write a function named getTaxRate that takes in the above shopping cart as input and returns the tax rate.
