@@ -2,9 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>HTML Forms</title>
 </head>
 <body>
+<h1>HTML Forms exercise</h1>
 
+<h2>Register With Us</h2>
+<form method="POST" action="https://request-inspector.glitch.me/">
+
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text">
+    <br>
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password">
+    <br>
+
+    <input type="submit">
+
+    <!-- Text -->
+    <h4>Text Input</h4>
+    <input id="movie" type="text" name="movie" placeholder="Enter favorite movie">
+    <!-- Email -->
+    <h4>Email Input</h4>
+    <input type="email" name="email" placeholder="Enter email address">
+    <!-- Password -->
+    <h4>Password Input</h4>
+    <input type="password" name="password" placeholder="Enter password">
+    <!-- Text area -->
+    <h4>Textarea Input</h4>
+    <textarea name="biography" rows="4" cols="50" placeholder="Biography"></textarea>
+    <!-- Checkboxes -->
+    <h4>Checkbox Input</h4>
+    <input name="newsletter_signup" value="true" type="checkbox" checked>Sign Up For The Email Newsletter
+    <!-- Multiple Checkboxes -->
+    <h4>Multiple Checkboxes</h4>
+    <fieldset>
+        <legend>Choose Toppings</legend>
+        <input name="topping" value="true" type="checkbox">Pepperoni
+        <input name="topping" value="true" type="checkbox">Peppers
+        <input name="topping" value="true" type="checkbox">Mushrooms
+        <input name="topping" value="true" type="checkbox">Olives
+    </fieldset>
+    <!-- Radio Buttons -->
+    <h4>How did you hear about us?</h4>
+    <fieldset>
+        <legend>Select Answer</legend>
+        <label>
+            <input type="radio" name="billboard" value="billboard">Billboard
+        </label><br>
+        <label>
+            <input type="radio" name="radio" value="radio advertisement">Radio Advertisement
+        </label><br>
+        <label>
+            <input type="radio" name="internet" value="internet advertisement">Internet Advertisement
+        </label><br>
+        <label>
+            <input type="radio" name="other" value="other">Other<br>
+        </label><br>
+    </fieldset>
+    <!-- Selects (with or without multiple option) -->
+    <h4>Select Inputs</h4>
+    <select name="coffee_preference">
+        <option value="light">Light Roast</option>
+        <option value="dark">Dark Roast</option>
+        <option value="espresso">Espresso Blend</option>
+    </select>
+    <!-- Hidden Inputs -->
+    <h4>Hidden Inputs</h4>
+    <input type="hidden" name="user_id" value="432">
+    <!-- Labels -->
+    <label for="firstName">First Name</label>
+    <input id="firstName" name="firstName" type="text" required>
+    <!-- Disabled -->
+    <label for="lastName">Last Name</label>
+    <input id="lastName" name="lastName" type="text" disabled>
+    <!-- Submit Button -->
+    <div>
+        <button>Submit</button>
+    </div>
+</form>
 </body>
 </html>
