@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript with HTML Lecture</title>
+</head>
+<body>
+
+    <h1>JavaScript with HTML Lecture</h1>
+
+    <!--
+    Comments
+    Inline JavaScript Example
+    External JavaScript Example
+    Logging to the JavaScript Console
+    Use Strict
+    Use Strict example
+    User Interaction
+    Alert
+    Confirm
+    Prompt
+    -->
+
+    <!-- Inline Script -->
+    <script>
+        "use strict";
+
+        // var x = 2;
+        //
+        // console.log(x);
+
+
+        // ==== CONSOLE OUTPUT
+
+        // write your code here...
+        // console.log('I am inside the HTML!');
+        // console.log('Another log');
+
+        // console.log('hello', 'world', 'one', 'two', 'three');
+        // console.error('WHOOPS');
+        // console.table([1, 2, 3]);
+
+        // ==== ALERT
+
+        // alert('Howdy Go!');
+        // alert('It is ' + new Date().toString());
+
+        // ==== CONFIRM
+
+        // var isEmployed = confirm('Are you currently employed?');
+        // alert('Are you employed? You answered that this is: ' + isEmployed);
+
+
+        // ==== PROMPT
+
+        var username = prompt('Please enter your username.');
+        var password = prompt('Please enter your password.');
+
+        var goodUsernameAndPassword = username.length > 5 && password.length > 5;
+
+        if (goodUsernameAndPassword) {
+            alert('That is a great set of credentials!');
+        } else {
+            alert('Those credentials are too short.');
+        }
+
+
+    </script>
+
+    <!-- External Script -->
+<!--    <script src="js/js-with-html-lecture.js"></script>-->
+
+</body>
+</html>
