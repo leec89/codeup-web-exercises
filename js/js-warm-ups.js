@@ -23,6 +23,7 @@
  * returnEveryOtherElement([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]) // returns [10, 8, 6, 4, 2]
  */
 
+/*
 function returnFirstAndLast (inputArr) {
     return [inputArr[0], inputArr[inputArr.length - 1]]
 }
@@ -43,3 +44,40 @@ console.log(returnEveryOtherElement([1, 2, 3, 4, 5])) // returns [1, 3, 5]
 console.log(returnEveryOtherElement([1, 2, 3])) // returns [1, 3]
 console.log(returnEveryOtherElement(['bob', 'sally', 'cathy', 'fred'])) // returns ['bob', 'cathy']
 console.log(returnEveryOtherElement([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])) // returns [10, 8, 6, 4, 2]
+*/
+
+
+var trails = [
+    {
+        name: "Salado Creek Greenway",
+        distanceInMiles: 20,
+        isPaved: true
+    },
+    {
+        name: "Leon Creek Greenway",
+        distanceInMiles: 20.1,
+        isPaved: true
+    },
+    {
+        name: "McAllister Park: Blue Loop",
+        distanceInMiles: 6.3,
+        isPaved: false
+    },
+    {
+        name: "Phil Hardberger Park: Geology Trail",
+        distanceInMiles: 0.8,
+        isPaved: false
+    }
+]
+
+function trailDistance (inputObj) {
+    var totalMiles = 0;
+    inputObj.forEach(function(trail) {
+        if (!trail.isPaved) {
+            totalMiles += trail.distanceInMiles;
+        }
+    })
+    return totalMiles;
+}
+
+console.log('Distance on non-paved trails is',trailDistance(trails),'miles.');
