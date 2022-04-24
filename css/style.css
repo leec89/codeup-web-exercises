@@ -6,3 +6,31 @@ this file is named "site.css" and is in a directory named "css"
     color: purple;
     text-decoration: underline;
 }
+
+#first-p-tag {
+    font-family: 'Roboto', sans-serif;
+}
+
+#bodyheader {
+    /*background-color: yellow;*/
+    /*background-image: url("/img/Doh-404.gif");*/
+}
+
+#h1header {
+    text-align: center;
+    color: purple;
+    text-decoration: underline;
+}
+
+#first-ul {
+    list-style: square;
+    font-family: 'Roboto', sans-serif;
+}
+
+#a-tag-bottom {
+    color: red;
+}
+
+a:link {
+    color: deepskyblue;
+}
