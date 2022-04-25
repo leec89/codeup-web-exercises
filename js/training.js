@@ -73,3 +73,23 @@ function test2 (arr1, arr2) {
 function test3 (a1, a2) {
     return a1.reduce((p, c) => p + c, 0) + a2.reduce((p, c) => p + c, 0)
 }
+
+
+
+
+const studentResult = [
+    { subject: 'Maths', marks: 78 },
+    { subject: 'Physics', marks: 80 },
+    { subject: 'Chemistry', marks: 93 }
+];
+
+const total = studentResult.reduce((accumulator, currentValue) => accumulator + currentValue.marks, 0);
+
+console.log(total);
+
+
+const twoDArr = [ [1,2], [3,4], [5,6], [7,8] , [9,10] ];
+
+const oneDArr = twoDArr.reduce((accumulator, currentValue) => accumulator.concat(currentValue));
+
+console.log(oneDArr);
