@@ -2,4 +2,5 @@
 *.iml
 .DS_Store
 secret.txt
-scratchpad.*
+xtra_scratchpad.html
+/img/Doh-404.gif
