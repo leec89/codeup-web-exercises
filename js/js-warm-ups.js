@@ -81,3 +81,13 @@ function trailDistance (inputObj) {
 }
 
 console.log('Distance on non-paved trails is',trailDistance(trails),'miles.');
+
+// d17w05, Tue Apr 26 warmup
+
+function returnAlpha (inputStr) {
+    var strIntoArray = inputStr.split('');
+    var sorted = strIntoArray.sort();
+    return sorted.join('');
+}
+console.log('\'webmaster\' alphabetized is: ',returnAlpha('webmaster')) //'abeemrstw'
+console.log('\'developer\' alphabetized is: ',returnAlpha('developer')) //'deeeloprv'
