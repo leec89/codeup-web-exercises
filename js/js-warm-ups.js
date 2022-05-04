@@ -124,6 +124,7 @@ createNumObject(7, 7) // returns...
   }
 */
 
+/*
 function createNumObject (num1, num2) {
     return num1 >= num2
         ? {lowest: num2, highest: num1}
@@ -133,3 +134,122 @@ function createNumObject (num1, num2) {
 console.log(createNumObject(7, 7));
 console.log(createNumObject(1, 3))
 console.log(createNumObject(10, 5))
+
+ */
+
+/*
+================================= WARM UP
+
+Consider an array of product objects:
+*/
+    const products = [
+        {
+            name: 'Hammer',
+            priceInCents: 4500,
+            isInStock: true
+        },
+        {
+            name: 'Computer',
+            priceInCents: 45000,
+            isInStock: true
+        },
+        {
+            name: 'Water Bottle',
+            priceInCents: 3300,
+            isInStock: true
+        },
+        {
+            name: 'Car',
+            priceInCents: 990000,
+            isInStock: true
+        },
+        {
+            name: 'Cup',
+            priceInCents: 230,
+            isInStock: false
+        },
+        {
+            name: 'Book',
+            priceInCents: 540,
+            isInStock: false
+        },
+    ];
+
+/**
+ *
+ * Create the following functions that take in an array of product objects and return various values:
+ *
+ * returnMostExpensiveProductObjectInStock(products)
+ *
+ * returnLeastExpensiveProductObjectInStock(products)
+ *
+ * returnAveragePriceOfAllProductsInStock(products)
+ *
+ * returnProductObjectsNotInStock(products)
+ *
+ */
+
+
+function returnMostExpensiveProductObjectInStock(inputArrOfObjs) {
+    let highest = 0
+    inputArrOfObjs.forEach(function(element) {
+        if (element.priceInCents > highest) {
+            highest = element.priceInCents
+        }
+    })
+    return highest;
+}
+
+function returnLeastExpensiveProductObjectInStock(inputArrOfObjs) {
+    let lowest = inputArrOfObjs[1].priceInCents;
+    inputArrOfObjs.forEach(function(element) {
+        if (element.priceInCents < lowest) {
+            lowest = element.priceInCents
+        }
+    })
+    return lowest;
+}
+
+function returnAveragePriceOfAllProductsInStock(inputArrOfObjs) {
+    let total = 0;
+    inputArrOfObjs.forEach(function(element) {
+        total += element.priceInCents;
+    })
+    return total/inputArrOfObjs.length;
+}
+
+function returnProductObjectsNotInStock(inputArrOfObjs) {
+    let outOfStock = [];
+    inputArrOfObjs.forEach(function(element) {
+        if (element.isInStock ===false) {
+            outOfStock.push(element)
+        }
+    })
+    return outOfStock;
+}
+
+console.log(returnMostExpensiveProductObjectInStock(products));
+console.log(returnLeastExpensiveProductObjectInStock(products));
+console.log(returnAveragePriceOfAllProductsInStock(products));
+console.log(returnProductObjectsNotInStock(products));
+
+function mostExpensive(inputArrOfObjs) {
+    return inputArrOfObjs.reduce((acc, product) => acc > product.priceInCents ? acc : product.priceInCents, 0)
+}
+
+function leastExpensive(inputArrOfObjs) {
+    return inputArrOfObjs.reduce((acc, product) => acc < product.priceInCents ? acc : product.priceInCents, inputArrOfObjs[0].priceInCents)
+}
+
+function averagePrices(inputArrOfObjs) {
+    return inputArrOfObjs.reduce((acc, product) => acc + product.priceInCents, 0) / inputArrOfObjs.length;
+}
+
+function notInStock(inputArrOfObjs) {
+    return inputArrOfObjs.filter(element => element.isInStock === false)
+}
+
+console.log(mostExpensive(products))
+console.log(leastExpensive(products))
+console.log(averagePrices(products))
+console.log(notInStock(products))

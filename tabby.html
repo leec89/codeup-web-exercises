@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Tabs</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"
+    />
+<!--    <link rel="stylesheet" href="css/normalize.css" />-->
+<!--    <link rel="stylesheet" href="css/reset.css" />-->
+    <link rel="stylesheet" href="css/pizzaworld.css" />
+  </head>
+
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Pizza World</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Order Online</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Menu</a>
+          </li>
+        </ul>
+        <form class="d-flex me-2">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success text-nowrap" type="submit">Search stores near you!</button>
+        </form>
+        <img src="img/person-fill.svg" class="ms-auto" alt="avatar">
+        <button class="btn text-nowrap" type="submit">Sign Up!</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="d-flex">
+    <div class="d-none d-sm-block" style="background-image: url('img/pizza.png'); background-size:cover; height: 346px; width: 100%">
+      <h1 class="display-3 position-relative top-50 start-50 translate-middle text-center bg-light bg-opacity-75">Welcome to Pizza World!</h1>
+    </div>
+  </div>
+
+    <div class="tabby">
+      <h2 class="py-2">Build your own pizza!</h2>
+      <div class="tabs">
+        <button class="tab" data-target="digimon" data-theme="digimon"><img height="25px" src="img/cir1.svg" alt="number 1">Size and Crust</button>
+        <button class="tab" data-target="pokemon" data-theme="pokemon"><img height="25px" src="img/cir2.svg" alt="number 2">Cheese and Sauce</button>
+        <button class="tab is-selected" data-target="tamagotchi" data-theme="tamagotchi"><img height="25px" src="img/cir3.svg" alt="number 3">Toppings</button>
+      </div>
+
+      <div class="tab-contents">
+        <section class="tab-content" id="digimon" data-theme="digimon">
+          <div class="card" style="width: 100%">
+            <div class="border rounded-top list-group-item" style="color: white; background-color:gray; height:50px">Pizza Size and Crust</div>
+            <div class="card-header">
+              <ul class="list-group list-group-flush border rounded">
+                <li class="list-group-item" style="background-color: lightgrey">Hand Tossed
+                </li>
+                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.
+                </li>
+                <li class="list-group-item">
+                  <input id="hts" name="crust" value="hand-toss-small" type="radio">
+                  <label
+                          for="hts">Small (10")
+                  </label>
+                </li>
+                <li class="list-group-item">
+                  <input id="htm" name="crust" value="hand-toss-medium" type="radio">
+                  <label for="htm">Medium (10")
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="card-header">
+              <ul class="list-group list-group-flush border rounded">
+                <li class="list-group-item" style="background-color: lightgrey">Crispy Thin
+                </li>
+                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.
+                </li>
+                <li class="list-group-item">
+                  <input id="tnm" name="crust" value="thin-medium" type="radio">
+                  <label for="tnm">Medium (12")
+                  </label>
+                </li>
+                <li class="list-group-item">
+                  <input id="tnl" name="crust" value="thin-large" type="radio">
+                  <label for="tnl">Large (14")
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-content" id="pokemon" data-theme="pokemon">
+          <div class="card" style="width: 100%">
+            <div class="border rounded-top list-group-item" style="color: white; background-color:gray; height:50px">Choose Cheese and Sauce
+            </div>
+            <div class="card-header">
+              <ul class="list-group list-group-flush border rounded">
+                <li class="list-group-item" style="background-color: gray; color: white">Cheese</li>
+                <li class="list-group-item">How much?</li>
+                <li class="list-group-item">
+                  <select name="cheese">
+                    <option value="light-cheese">Light Cheese</option>
+                    <option value="normal-cheese" selected>Normal Cheese</option>
+                    <option value="extra-cheese">Extra Cheese</option>
+                    <option value="double-cheese">Double Cheese</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+            <div class="card-header">
+              <ul class="list-group list-group-flush border rounded">
+                <li class="list-group-item rounded-top" style="background-color: gray; color: white">Sauce</li>
+                <li class="list-group-item">What type?</li>
+                <li class="list-group-item">
+                  <select name="sauce">
+                    <option value="tomato" selected>Tomato</option>
+                    <option value="marinara">Marinara</option>
+                    <option value="bbq">BBQ</option>
+                    <option value="alfredo">Alfredo</option>
+                  </select>
+                </li>
+                <li class="list-group-item">How Much?
+                </li>
+                <li class="list-group-item">
+                  <select name="sauce-amt">
+                    <option value="light-sauce">Light</option>
+                    <option value="normal-sauce" selected>Normal</option>
+                    <option value="extra-sauce">Extra</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-content is-selected" id="tamagotchi" data-theme="tamagotchi">
+          <div class="card" style="width: 100%">
+            <div class="border rounded-top list-group-item" style="color: white; background-color:gray; height:50px">Choose Toppings
+            </div>
+            <div class="card-header">
+              <ul class="list-group list-group-flush border rounded">
+                <li class="list-group-item rounded-top" style="background-color: lightgrey">Choose Meats
+                </li>
+                <li class="list-group-item">
+                  <label for="beef">
+                    <input type="checkbox" name="beef" id="beef" value="beef"> Beef
+                  </label>
+                </li>
+                <li class="list-group-item">
+                  <label for="beef">
+                    <input type="checkbox" name="beef" id="ham" value="beef"> Ham
+                  </label>
+                </li>
+                <li class="list-group-item">
+                  <label for="beef">
+                    <input type="checkbox" name="beef" id="philly" value="beef"> Philly Steak
+                  </label>
+                </li>
+                <li class="list-group-item">
+                  <label for="beef">
+                    <input type="checkbox" name="beef" id="Bacon" value="beef"> Bacon
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="card-header">
+              <ul class="list-group list-group-flush border rounded">
+                <li class="list-group-item rounded-top" style="background-color: lightgrey">Choose Non-Meats
+                </li>
+                <li class="list-group-item">
+                  <label for="green-peppers">
+                    <input type="checkbox" name="green-peppers" id="green-peppers" value="green-peppers"> Green
+                    Peppers
+                  </label>
+                </li>
+                <li class="list-group-item">
+                  <label for="mushrooms">
+                    <input type="checkbox" name="mushrooms" id="mushrooms" value="mushrooms"> Mushrooms
+                  </label>
+                </li>
+                <li class="list-group-item">
+                  <label for="onions">
+                    <input type="checkbox" name="onions" id="onions" value="onions"> Onions
+                  </label>
+                </li>
+                <li class="list-group-item">
+                  <label for="jalapeno">
+                    <input type="checkbox" name="jalapeno" id="jalapeno" value="jalapeno"> Jalapeño Peppers
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/tabby.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+          crossorigin="anonymous"></script>
+  </body>
+</html>
