@@ -234,11 +234,15 @@ console.log(returnAveragePriceOfAllProductsInStock(products));
 console.log(returnProductObjectsNotInStock(products));
 
 function mostExpensive(inputArrOfObjs) {
-    return inputArrOfObjs.reduce((element, product) => element > product.priceInCents ? element : product.priceInCents, 0)
+    return inputArrOfObjs.reduce((element, product) => element > product.priceInCents
+        ? element
+        : product.priceInCents, 0)
 }
 
 function leastExpensive(inputArrOfObjs) {
-    return inputArrOfObjs.reduce((element, product) => element < product.priceInCents ? element : product.priceInCents, inputArrOfObjs[0].priceInCents)
+    return inputArrOfObjs.reduce((element, product) => element < product.priceInCents
+        ? element
+        : product.priceInCents, inputArrOfObjs[0].priceInCents)
 }
 
 function averagePrices(inputArrOfObjs) {
@@ -246,10 +250,23 @@ function averagePrices(inputArrOfObjs) {
 }
 
 function notInStock(inputArrOfObjs) {
-    return inputArrOfObjs.filter(element => element.isInStock === false)
+    return inputArrOfObjs.filter(element => !element.isInStock)
+}
+
+function inStock(inputArrOfObjs) {
+    return inputArrOfObjs.filter(element => element.isInStock)
+}
+
+function leastExpensiveInStock(inputArrOfObjs) {
+    return inputArrOfObjs.filter(element => element.isInStock).reduce((element, product) => element < product.priceInCents
+        ? element
+        : product.priceInCents, inputArrOfObjs[0].priceInCents)
 }
 
 console.log(mostExpensive(products))
 console.log(leastExpensive(products))
 console.log(averagePrices(products))
 console.log(notInStock(products))
+console.log(inStock(products))
+console.log(leastExpensiveInStock(products))
+console.log(leastExpensive(inStock(products)))
