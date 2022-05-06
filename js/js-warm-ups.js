@@ -142,38 +142,38 @@ console.log(createNumObject(10, 5))
 
 Consider an array of product objects:
 */
-    const products = [
-        {
-            name: 'Hammer',
-            priceInCents: 4500,
-            isInStock: true
-        },
-        {
-            name: 'Computer',
-            priceInCents: 45000,
-            isInStock: true
-        },
-        {
-            name: 'Water Bottle',
-            priceInCents: 3300,
-            isInStock: true
-        },
-        {
-            name: 'Car',
-            priceInCents: 990000,
-            isInStock: true
-        },
-        {
-            name: 'Cup',
-            priceInCents: 230,
-            isInStock: false
-        },
-        {
-            name: 'Book',
-            priceInCents: 540,
-            isInStock: false
-        },
-    ];
+const products = [
+    {
+        name: 'Hammer',
+        priceInCents: 4500,
+        isInStock: true
+    },
+    {
+        name: 'Computer',
+        priceInCents: 45000,
+        isInStock: true
+    },
+    {
+        name: 'Water Bottle',
+        priceInCents: 3300,
+        isInStock: true
+    },
+    {
+        name: 'Car',
+        priceInCents: 990000,
+        isInStock: true
+    },
+    {
+        name: 'Cup',
+        priceInCents: 230,
+        isInStock: false
+    },
+    {
+        name: 'Book',
+        priceInCents: 540,
+        isInStock: false
+    },
+];
 
 /**
  *
@@ -192,7 +192,7 @@ Consider an array of product objects:
 
 function returnMostExpensiveProductObjectInStock(inputArrOfObjs) {
     let highest = 0
-    inputArrOfObjs.forEach(function(element) {
+    inputArrOfObjs.forEach(function (element) {
         if (element.priceInCents > highest) {
             highest = element.priceInCents
         }
@@ -202,7 +202,7 @@ function returnMostExpensiveProductObjectInStock(inputArrOfObjs) {
 
 function returnLeastExpensiveProductObjectInStock(inputArrOfObjs) {
     let lowest = inputArrOfObjs[1].priceInCents;
-    inputArrOfObjs.forEach(function(element) {
+    inputArrOfObjs.forEach(function (element) {
         if (element.priceInCents < lowest) {
             lowest = element.priceInCents
         }
@@ -212,16 +212,16 @@ function returnLeastExpensiveProductObjectInStock(inputArrOfObjs) {
 
 function returnAveragePriceOfAllProductsInStock(inputArrOfObjs) {
     let total = 0;
-    inputArrOfObjs.forEach(function(element) {
+    inputArrOfObjs.forEach(function (element) {
         total += element.priceInCents;
     })
-    return total/inputArrOfObjs.length;
+    return total / inputArrOfObjs.length;
 }
 
 function returnProductObjectsNotInStock(inputArrOfObjs) {
     let outOfStock = [];
-    inputArrOfObjs.forEach(function(element) {
-        if (element.isInStock ===false) {
+    inputArrOfObjs.forEach(function (element) {
+        if (element.isInStock === false) {
             outOfStock.push(element)
         }
     })
@@ -263,6 +263,16 @@ function leastExpensiveInStock(inputArrOfObjs) {
         : product.priceInCents, inputArrOfObjs[0].priceInCents)
 }
 
+function useReduceLeastExpensiveInStock(inputArrOfObjs) {
+    return inputArrOfObjs.reduce((accumulator, currentValue) => {
+            if (currentValue.priceInCents < accumulator && currentValue.isInStock) {
+                accumulator = currentValue.priceInCents
+            }
+            return accumulator
+        },inputArrOfObjs[0].priceInCents)
+}
+console.log('useReduceLeastExpensiveInStock is', useReduceLeastExpensiveInStock(products))
+
 console.log(mostExpensive(products))
 console.log(leastExpensive(products))
 console.log(averagePrices(products))
@@ -270,3 +280,128 @@ console.log(notInStock(products))
 console.log(inStock(products))
 console.log(leastExpensiveInStock(products))
 console.log(leastExpensive(inStock(products)))
+
+const users = [
+    {
+        id: 1,
+        name: 'ryan',
+        email: 'ryan@codeup.com',
+        languages: ['clojure', 'javascript'],
+        yearsOfExperience: 5
+    },
+    {
+        id: 2,
+        name: 'luis',
+        email: 'luis@codeup.com',
+        languages: ['java', 'scala', 'php'],
+        yearsOfExperience: 6
+    },
+    {
+        id: 3,
+        name: 'zach',
+        email: 'zach@codeup.com',
+        languages: ['javascript', 'bash'],
+        yearsOfExperience: 7
+    },
+    {
+        id: 4,
+        name: 'fernando',
+        email: 'fernando@codeup.com',
+        languages: ['java', 'php', 'sql'],
+        yearsOfExperience: 8
+    },
+    {
+        id: 5,
+        name: 'justin',
+        email: 'justin@codeup.com',
+        languages: ['html', 'css', 'javascript', 'php'],
+        yearsOfExperience: 9
+    }
+];
+
+function findLanguagesArr(inputUsers) {
+    var languages = [];
+    inputUsers.forEach((user) => {
+        languages.push(user.languages)
+    })
+    return languages;
+}
+
+console.log('findLanguages is ', findLanguagesArr(users))
+
+/***************************************/
+
+function allLanguages(foundLanguagesArr) {
+    return foundLanguagesArr.reduce((accumulator, currentValue) => accumulator.concat(currentValue));
+}
+
+console.log('allLanguages is ', allLanguages(findLanguagesArr(users)))
+
+/***************************************/
+
+function uniqueLanguages(bunchOfLanguages) {
+    return bunchOfLanguages.reduce(function (accumulator, currentValue) {
+        if (accumulator.indexOf(currentValue) === -1) {
+            accumulator.push(currentValue);
+        }
+        return accumulator;
+    }, []);
+}
+
+console.log('uniqueLanguages(allLanguages(findLanguagesArr(users))) is ', uniqueLanguages(allLanguages(findLanguagesArr(users))));
+
+/***************************************/
+
+function testFindWithReduce(inputUsers) {
+    let testReduce = inputUsers.reduce((accumulator, currentValue) => {
+        if (Array.isArray(currentValue.languages)) {
+            accumulator.push(currentValue.languages)
+        }
+        return accumulator;
+    }, [])
+    return testReduce;
+}
+
+console.log('testFindWithReduce is ', testFindWithReduce(users))
+
+/***************************************/
+/*************https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce*****************/
+
+let mozillaTest = users.reduce(function (previousValue, currentValue) {
+    return [...previousValue, ...currentValue.languages]
+}, [])
+
+console.log('mozillaTest is ', mozillaTest)
+
+/***************************************/
+
+function languagesFound(inputUsers) {
+    let asdf = inputUsers.reduce((accumulator, currentValue) => {
+        let languageArray = currentValue.languages;
+        languageArray.forEach(element => {
+            if (accumulator.indexOf(element) === -1) {
+                accumulator.push(element)
+            }
+        })
+        return accumulator;
+    }, [])
+    return asdf;
+}
+
+console.log('languagesFound is/are ', languagesFound(users))
+
+/***************************************/
+
+function findJavascriptUsers(inputUsers) {
+    let findJsUsers = inputUsers.reduce((accumulator, currentValue) => {
+        if (Array.isArray(currentValue.languages)) {
+            if (currentValue.languages.indexOf('javascript') !== -1) {
+                accumulator.push(currentValue.name)
+            }
+        }
+        return accumulator;
+    }, [])
+    return findJsUsers;
+}
+
+console.log('Javascript Users is/are ', findJavascriptUsers(users))
