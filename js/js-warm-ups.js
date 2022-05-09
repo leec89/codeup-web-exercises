@@ -191,32 +191,50 @@ const products = [
 
 
 function returnMostExpensiveProductObjectInStock(inputArrOfObjs) {
-    let highest = 0
+    let highestPrice = 0;
+    let highestObj = {};
     inputArrOfObjs.forEach(function (element) {
-        if (element.priceInCents > highest) {
-            highest = element.priceInCents
+        if ((element.priceInCents > highestPrice) && (element.isInStock)) {
+            highestObj = element
         }
     })
-    return highest;
+    return highestObj
 }
 
+console.log('forEach - returnMostExpensiveProductObjectInStock is', returnMostExpensiveProductObjectInStock(products));
+
+/***************************************/
+
 function returnLeastExpensiveProductObjectInStock(inputArrOfObjs) {
-    let lowest = inputArrOfObjs[1].priceInCents;
+    let lowestPrice = inputArrOfObjs[0].priceInCents;
+    let lowestObj = {};
     inputArrOfObjs.forEach(function (element) {
-        if (element.priceInCents < lowest) {
-            lowest = element.priceInCents
+        if ((element.priceInCents < lowestPrice) && (element.isInStock)) {
+            lowestObj = element
         }
     })
-    return lowest;
+    return lowestObj
 }
+
+console.log('forEach - returnLeastExpensiveProductObjectInStock is', returnLeastExpensiveProductObjectInStock(products));
+
+/***************************************/
 
 function returnAveragePriceOfAllProductsInStock(inputArrOfObjs) {
     let total = 0;
+    let count = 0;
     inputArrOfObjs.forEach(function (element) {
-        total += element.priceInCents;
+        if (element.isInStock) {
+            total += element.priceInCents;
+            count++;
+        }
     })
-    return total / inputArrOfObjs.length;
+    return total / count;
 }
+
+console.log('forEach - returnAveragePriceOfAllProductsInStock is', returnAveragePriceOfAllProductsInStock(products));
+
+/***************************************/
 
 function returnProductObjectsNotInStock(inputArrOfObjs) {
     let outOfStock = [];
@@ -228,58 +246,81 @@ function returnProductObjectsNotInStock(inputArrOfObjs) {
     return outOfStock;
 }
 
-console.log(returnMostExpensiveProductObjectInStock(products));
-console.log(returnLeastExpensiveProductObjectInStock(products));
-console.log(returnAveragePriceOfAllProductsInStock(products));
-console.log(returnProductObjectsNotInStock(products));
+console.log('forEach - returnProductObjectsNotInStock is', returnProductObjectsNotInStock(products));
 
-function mostExpensive(inputArrOfObjs) {
-    return inputArrOfObjs.reduce((element, product) => element > product.priceInCents
+/***************************************/
+
+function notInStockWithFilter(inputArrOfObjs) {
+    return inputArrOfObjs.filter(element => !element.isInStock)
+}
+
+console.log('notInStockWithFilter is', notInStockWithFilter(products))
+
+/***************************************/
+
+function inStockWithFilter(inputArrOfObjs) {
+    return inputArrOfObjs.filter(element => element.isInStock)
+}
+
+console.log('inStockWithFilter is', inStockWithFilter(products))
+
+/***************************************/
+
+function mostExpensiveInStock(inputArrOfObjs) {
+    let inStock = inStockWithFilter(inputArrOfObjs);
+    return inStock.reduce((element, product) => element > product.priceInCents
         ? element
         : product.priceInCents, 0)
 }
 
-function leastExpensive(inputArrOfObjs) {
-    return inputArrOfObjs.reduce((element, product) => element < product.priceInCents
+console.log('mostExpensiveInStock is', mostExpensiveInStock(products))
+
+/***************************************/
+
+function leastExpensiveInStock(inputArrOfObjs) {
+    let inStock = inStockWithFilter(inputArrOfObjs);
+    return inStock.reduce((element, product) => element < product.priceInCents
         ? element
         : product.priceInCents, inputArrOfObjs[0].priceInCents)
 }
 
-function averagePrices(inputArrOfObjs) {
-    return inputArrOfObjs.reduce((element, product) => element + product.priceInCents, 0) / inputArrOfObjs.length;
+console.log('leastExpensiveInStock is', leastExpensiveInStock(products))
+
+/***************************************/
+
+function averagePricesInStockWithReduce(inputArrOfObjs) {
+    let inStock = inStockWithFilter(inputArrOfObjs);
+    return inStock.reduce((element, product) => element + product.priceInCents, 0) / inStock.length;
 }
 
-function notInStock(inputArrOfObjs) {
-    return inputArrOfObjs.filter(element => !element.isInStock)
-}
+console.log('averagePricesInStockWithReduce is', averagePricesInStockWithReduce(products))
 
-function inStock(inputArrOfObjs) {
-    return inputArrOfObjs.filter(element => element.isInStock)
-}
+/***************************************/
 
-function leastExpensiveInStock(inputArrOfObjs) {
+function leastExpensiveInStockWithFilterReduce(inputArrOfObjs) {
     return inputArrOfObjs.filter(element => element.isInStock).reduce((element, product) => element < product.priceInCents
         ? element
         : product.priceInCents, inputArrOfObjs[0].priceInCents)
 }
 
-function useReduceLeastExpensiveInStock(inputArrOfObjs) {
-    return inputArrOfObjs.reduce((accumulator, currentValue) => {
-            if (currentValue.priceInCents < accumulator && currentValue.isInStock) {
-                accumulator = currentValue.priceInCents
-            }
-            return accumulator
-        },inputArrOfObjs[0].priceInCents)
-}
-console.log('useReduceLeastExpensiveInStock is', useReduceLeastExpensiveInStock(products))
+console.log('chained - leastExpensiveInStockWithFilterReduce is', leastExpensiveInStockWithFilterReduce(products))
 
-console.log(mostExpensive(products))
-console.log(leastExpensive(products))
-console.log(averagePrices(products))
-console.log(notInStock(products))
-console.log(inStock(products))
-console.log(leastExpensiveInStock(products))
-console.log(leastExpensive(inStock(products)))
+/***************************************/
+
+function leastExpensiveInStockWithReduce(inputArrOfObjs) {
+    return inputArrOfObjs.reduce((accumulator, currentValue) => {
+        if (currentValue.priceInCents < accumulator && currentValue.isInStock) {
+            accumulator = currentValue
+        }
+        return accumulator
+    }, inputArrOfObjs[0].priceInCents)
+}
+
+console.log('nested - leastExpensive(inStock(products)) is', leastExpensiveInStock(inStockWithFilter(products)))
+console.log('single - leastExpensiveInStockWithReduce is', leastExpensiveInStockWithReduce(products))
+
+/***************************************/
+
 
 const users = [
     {
@@ -319,7 +360,7 @@ const users = [
     }
 ];
 
-function findLanguagesArr(inputUsers) {
+function findLangsArr(inputUsers) {
     var languages = [];
     inputUsers.forEach((user) => {
         languages.push(user.languages)
@@ -327,19 +368,19 @@ function findLanguagesArr(inputUsers) {
     return languages;
 }
 
-console.log('findLanguages is ', findLanguagesArr(users))
+console.log('findLangsArr is ', findLangsArr(users))
 
 /***************************************/
 
-function allLanguages(foundLanguagesArr) {
+function allLangs(foundLanguagesArr) {
     return foundLanguagesArr.reduce((accumulator, currentValue) => accumulator.concat(currentValue));
 }
 
-console.log('allLanguages is ', allLanguages(findLanguagesArr(users)))
+console.log('nested - allLangs(findLangsArr(users)) is ', allLangs(findLangsArr(users)))
 
 /***************************************/
 
-function uniqueLanguages(bunchOfLanguages) {
+function uniqueLangs(bunchOfLanguages) {
     return bunchOfLanguages.reduce(function (accumulator, currentValue) {
         if (accumulator.indexOf(currentValue) === -1) {
             accumulator.push(currentValue);
@@ -348,34 +389,35 @@ function uniqueLanguages(bunchOfLanguages) {
     }, []);
 }
 
-console.log('uniqueLanguages(allLanguages(findLanguagesArr(users))) is ', uniqueLanguages(allLanguages(findLanguagesArr(users))));
+console.log('nested - uniqueLangs(allLangs(findLangsArr(users))) is ', uniqueLangs(allLangs(findLangsArr(users))));
 
 /***************************************/
 
-function testFindWithReduce(inputUsers) {
-    let testReduce = inputUsers.reduce((accumulator, currentValue) => {
+function findLangsWithReduce(inputUsers) {
+    return inputUsers.reduce((accumulator, currentValue) => {
         if (Array.isArray(currentValue.languages)) {
             accumulator.push(currentValue.languages)
         }
         return accumulator;
     }, [])
-    return testReduce;
 }
 
-console.log('testFindWithReduce is ', testFindWithReduce(users))
+console.log('findLangsWithReduce is ', findLangsWithReduce(users))
 
 /***************************************/
 /*************https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce*****************/
 
-let mozillaTest = users.reduce(function (previousValue, currentValue) {
-    return [...previousValue, ...currentValue.languages]
-}, [])
+function allLangsWithReduce(inputUsers) {
+    return inputUsers.reduce(function (previousValue, currentValue) {
+        return [...previousValue, ...currentValue.languages]
+    }, [])
+}
 
-console.log('mozillaTest is ', mozillaTest)
+console.log('allLangsWithReduce is ', allLangsWithReduce(users))
 
 /***************************************/
 
-function languagesFound(inputUsers) {
+function languagesFoundWithReduce(inputUsers) {
     let asdf = inputUsers.reduce((accumulator, currentValue) => {
         let languageArray = currentValue.languages;
         languageArray.forEach(element => {
@@ -388,11 +430,11 @@ function languagesFound(inputUsers) {
     return asdf;
 }
 
-console.log('languagesFound is/are ', languagesFound(users))
+console.log('languagesFoundWithReduce is/are ', languagesFoundWithReduce(users))
 
 /***************************************/
 
-function findJavascriptUsers(inputUsers) {
+function findJavascriptUsersWithReduce(inputUsers) {
     let findJsUsers = inputUsers.reduce((accumulator, currentValue) => {
         if (Array.isArray(currentValue.languages)) {
             if (currentValue.languages.indexOf('javascript') !== -1) {
@@ -404,4 +446,4 @@ function findJavascriptUsers(inputUsers) {
     return findJsUsers;
 }
 
-console.log('Javascript Users is/are ', findJavascriptUsers(users))
+console.log('Javascript Users is/are ', findJavascriptUsersWithReduce(users))
