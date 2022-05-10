@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>DOM: Query and Modify</title>
+    <link rel="stylesheet" href="css/dom-query.css">
+
 </head>
+<!--<style>-->
+<!--    .hidden {-->
+<!--        display: none;-->
+<!--    }-->
+<!--</style>-->
 <body>
 
 <h1 id="main-header">Hello World!</h1>
@@ -25,41 +32,35 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
-<script>
-    (function () {
-        "use strict";
-        // TODO: Uncomment next line and get the main header element by id
-        let mainHeader = document.getElementById("main-header");
-
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
-
-        // TODO: Uncomment the next line and get the sub header element by id
-        let subHeader = document.getElementById("sub-header");
-
-        // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = "blue";
-
-        // TODO: Uncomment the next line and get all list items
-        let listItems = document.getElementsByTagName("li");
-
-        // TODO: Set text color on every other list item to grey
-        // TODO: Set text color of li with dbid = 1 to blue
-
-        for (var i = 0; i < listItems.length; i++) {
-            if (i % 2 === 1) {
-                listItems[i].style.color = "blue";
-            }
-        }
-        listItems[0].style.color = "white";
-        listItems[0].style.backgroundColor = "blue";
-
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        let subParagraphs = document.querySelectorAll(".sub-paragraph");
-
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerHTML = "Mission Accomplished!"
-    })();
+<button id="btn1">Click Me! - 1</button>
+<button id="btn2">Click Me! - 2</button>
+<button id="btn3">Click Me! - 3</button>
+<button id="btn4">Click Me! - 4</button>
+<button onclick="Buttontoggle()">Click to Toggle Class</button>
+<div id="123">Some Text</div>
+<style type="text/css">
+    .myClass {
+        width: 50%;
+        padding: 33px;
+        background-color: green;
+        color: white;
+        font-size: 33px;
+    }
+</style>
+<script type="text/javascript">
+    function Buttontoggle()
+    {
+        var t = document.getElementById("123");
+        t.classList.toggle("myClass");
+    }
 </script>
+<!--<button id="toggleBtn">Toggle Me</button>-->
+
+<!--<div id="mainHeading" class="hidden">-->
+<!--    Hi there-->
+<!--</div>-->
+
+<script src="js/dom-query.js"></script>
+
 </body>
 </html>
