@@ -357,7 +357,7 @@ console.log('single - leastExpensiveInStockWithReduce is', leastExpensiveInStock
 
 /**
  *
- * d25w06, Mon May 9 warmup
+ * d25w07, Mon May 9 warmup
  *
  * Write a function that accepts an array of numbers and returns the average.
  *
@@ -382,7 +382,175 @@ function findAverages(inputArr) {
 console.log('findAverages is ', findAverages([3, 5, 7, 10, 0]))
 console.log('findAverages is ', findAverages([0, 3, 5, 6, 21]))
 
+/**
+ *
+ * d26w07, Tue May 10 warmup
+ *
+ * let classes = [
+ *     {class: "6th grade history", students: 18},
+ *     {class: "7th grade history", students: 20},
+ *     {class: "8th grade history", students: 22}
+ * ];
+ *
+ * // Write a function, calculateTotalStudents, that returns the total number of students recorded in the classes array.
+ *
+ * // Bonus: instead of the total students, return the highest number of students in any class
+ *
+ */
+
+let classes = [
+    {class: "6th grade history", students: 18},
+    {class: "7th grade history", students: 20},
+    {class: "8th grade history", students: 22}
+];
+
+function calculateTotalStudents (inputArrOfObjs) {
+    return inputArrOfObjs.reduce(function (sum, student) {
+        return sum + student.students;
+    }, 0)
+}
+
+function highestAmtOfStudentsObj (inputArrOfObjs) {
+    return inputArrOfObjs.reduce(function (element, student) {
+        return (element.students || 0) > student.students
+            ? element
+            : student
+    })
+}
+
+function highestAmtOfStudents(inputArrOfObjs) {
+    let highest = 0;
+    inputArrOfObjs.forEach(function (element) {
+        if (element.students > highest) {
+            highest = element.students
+        }
+    })
+    return highest;
+}
+
+console.log('calculateTotalStudents is ', calculateTotalStudents(classes));
+console.log('highestAmtOfStudentsObj is ', highestAmtOfStudentsObj(classes));
+console.log('highestAmtOfStudents', highestAmtOfStudents(classes));
+
 /***************************************/
+
+/**
+ *
+ * d27w07, Wed May 11 warmup
+ *
+ * // Write a function called convertToObject that takes in a string that is the name of a class, and a number that is the number of students, and returns an object with the properties `class` and `students`
+ *
+ * //convertToObject("Intro to Programming", 20) returns {class: "Intro to Programming", students: 20}
+ *
+ *
+ * var neighborhood1 ={
+ *     neighborhood: "Lovely Estates",
+ *     medianHomePrice: 280000,
+ *     pool: true,
+ *     tennis: false,
+ *     crimeRate: "low",
+ *     schools: [
+ *         {name: "ES1", rating: 8},
+ *         {name: "MS2", rating: 6},
+ *         {name: "HS3", rating: 8}
+ *     ]
+ * }
+ *
+ * var neighborhood2 ={
+ *     neighborhood: "Luminous Estates",
+ *     medianHomePrice: 270000,
+ *     pool: true,
+ *     tennis: false,
+ *     crimeRate: "low",
+ *     schools: [
+ *         {name: "ES1", rating: 8},
+ *         {name: "MS2", rating: 8},
+ *         {name: "HS3", rating: 8}
+ *     ]
+ * }
+ *
+ * var neighborhood3 ={
+ *     neighborhood: "Ginormous Ego Estates",
+ *     medianHomePrice: 350000,
+ *     pool: true,
+ *     tennis: true,
+ *     crimeRate: "low",
+ *     schools: [
+ *         {name: "ES1", rating: 9},
+ *         {name: "MS2", rating: 9},
+ *         {name: "HS3", rating: 9}
+ *     ]
+ * }
+ *
+ * // Write a function that takes a neighborhood object and determines if it is desirable. A neighborhood is desirable if the median home price is less than 300000, crime rates are low, and the total rating of schools is at least 24.
+ *
+ *
+ */
+
+var neighborhood1 ={
+    neighborhood: "Lovely Estates",
+    medianHomePrice: 280000,
+    pool: true,
+    tennis: false,
+    crimeRate: "low",
+    schools: [
+        {name: "ES1", rating: 8},
+        {name: "MS2", rating: 6},
+        {name: "HS3", rating: 8}
+    ]
+}
+
+var neighborhood2 ={
+    neighborhood: "Luminous Estates",
+    medianHomePrice: 270000,
+    pool: true,
+    tennis: false,
+    crimeRate: "low",
+    schools: [
+        {name: "ES1", rating: 8},
+        {name: "MS2", rating: 8},
+        {name: "HS3", rating: 8}
+    ]
+}
+
+var neighborhood3 ={
+    neighborhood: "Ginormous Ego Estates",
+    medianHomePrice: 350000,
+    pool: true,
+    tennis: true,
+    crimeRate: "low",
+    schools: [
+        {name: "ES1", rating: 9},
+        {name: "MS2", rating: 9},
+        {name: "HS3", rating: 9}
+    ]
+}
+
+function convertToObject (inputStr, inputNum) {
+    return {class: inputStr, students: inputNum};
+}
+console.log('convertToObject', convertToObject("Intro to Programming", 20));
+
+function desirableNeighborhood (inputNeighborhoodObj) {
+
+    function calculateTotalRating (inputArrOfObjs) {
+        return inputArrOfObjs.reduce(function (ratingSum, school) {
+            return ratingSum + school.rating;
+        }, 0)
+    }
+
+    let medianHomePrice = false;
+    let crimeRateLow = false;
+    let schoolRatings = false;
+    if (inputNeighborhoodObj.medianHomePrice < 300000) medianHomePrice = true;
+    if (inputNeighborhoodObj.crimeRate === 'low') crimeRateLow = true;
+    if (calculateTotalRating(inputNeighborhoodObj.schools) >= 24) schoolRatings = true;
+    return (medianHomePrice && crimeRateLow && schoolRatings)
+}
+
+console.log('desirableNeighborhood1', desirableNeighborhood(neighborhood1));
+console.log('desirableNeighborhood2', desirableNeighborhood(neighborhood2));
+console.log('desirableNeighborhood3', desirableNeighborhood(neighborhood3));
 
 const users = [
     {
