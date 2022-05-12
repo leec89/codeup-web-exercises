@@ -590,6 +590,31 @@ console.log('desirableNeighborhood3', desirableNeighborhood(neighborhood3));
 /*************************************************************************************************
  *************************************************************************************************/
 
+var example = [
+    {name: 'tomatoes', price: 4},
+    {name: 'potatoes', price: 6},
+    {name: 'wine', price: 16},
+]
+
+let diffExample = [
+    {name: 'amazing thing', price: 1000},
+    {name: 'amazing thing', price: 3000},
+    {name: 'amazing thing', price: 2},
+];
+
+function findHighestPrice (inputArr) {
+    let highestObj = inputArr.reduce(function (element, item) {
+        return (element.price || 0) > item.price ? element : item;
+    })
+    return highestObj.price
+}
+
+console.log('findHighestPrice', findHighestPrice(example));
+console.log('findHighestPrice', findHighestPrice(diffExample));
+
+/*************************************************************************************************
+ *************************************************************************************************/
+
 const users = [
     {
         id: 1,
