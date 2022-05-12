@@ -177,6 +177,8 @@ const products = [
 
 /**
  *
+ * d22w06, Wed May 4 warmup
+ *
  * Create the following functions that take in an array of product objects and return various values:
  *
  * returnMostExpensiveProductObjectInStock(products)
@@ -188,7 +190,6 @@ const products = [
  * returnProductObjectsNotInStock(products)
  *
  */
-
 
 function returnMostExpensiveProductObjectInStock(inputArrOfObjs) {
     let highestPrice = 0;
@@ -203,7 +204,8 @@ function returnMostExpensiveProductObjectInStock(inputArrOfObjs) {
 
 console.log('forEach - returnMostExpensiveProductObjectInStock is', returnMostExpensiveProductObjectInStock(products));
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function returnLeastExpensiveProductObjectInStock(inputArrOfObjs) {
     let lowestPrice = inputArrOfObjs[0].priceInCents;
@@ -218,7 +220,8 @@ function returnLeastExpensiveProductObjectInStock(inputArrOfObjs) {
 
 console.log('forEach - returnLeastExpensiveProductObjectInStock is', returnLeastExpensiveProductObjectInStock(products));
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function returnAveragePriceOfAllProductsInStock(inputArrOfObjs) {
     let total = 0;
@@ -234,7 +237,8 @@ function returnAveragePriceOfAllProductsInStock(inputArrOfObjs) {
 
 console.log('forEach - returnAveragePriceOfAllProductsInStock is', returnAveragePriceOfAllProductsInStock(products));
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function returnProductObjectsNotInStock(inputArrOfObjs) {
     let outOfStock = [];
@@ -248,7 +252,8 @@ function returnProductObjectsNotInStock(inputArrOfObjs) {
 
 console.log('forEach - returnProductObjectsNotInStock is', returnProductObjectsNotInStock(products));
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function notInStockWithFilter(inputArrOfObjs) {
     return inputArrOfObjs.filter(element => !element.isInStock)
@@ -256,7 +261,8 @@ function notInStockWithFilter(inputArrOfObjs) {
 
 console.log('notInStockWithFilter is', notInStockWithFilter(products))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function inStockWithFilter(inputArrOfObjs) {
     return inputArrOfObjs.filter(element => element.isInStock)
@@ -264,7 +270,8 @@ function inStockWithFilter(inputArrOfObjs) {
 
 console.log('inStockWithFilter is', inStockWithFilter(products))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 /**
  *
@@ -297,8 +304,8 @@ console.log('inStockWithFilter is', inStockWithFilter(products))
  */
 
 function mostExpensiveInStockObj(inputArrOfObjs) {
-    let inStock = inStockWithFilter(inputArrOfObjs);
-    return inStock.reduce(function (element, product) {
+    let inStockArrOfObjs = inStockWithFilter(inputArrOfObjs);
+    return inStockArrOfObjs.reduce(function (element, product) {
         return (element.priceInCents || 0) > product.priceInCents
             ? element
             : product
@@ -307,11 +314,12 @@ function mostExpensiveInStockObj(inputArrOfObjs) {
 
 console.log('mostExpensiveInStockObj is', mostExpensiveInStockObj(products))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function leastExpensiveInStockObj(inputArrOfObjs) {
-    let inStock = inStockWithFilter(inputArrOfObjs);
-    return inStock.reduce(function (element, product) {
+    let inStockArrOfObjs = inStockWithFilter(inputArrOfObjs);
+    return inStockArrOfObjs.reduce(function (element, product) {
         return (element.priceInCents || 0) < product.priceInCents
             ? element
             : product
@@ -320,16 +328,18 @@ function leastExpensiveInStockObj(inputArrOfObjs) {
 
 console.log('leastExpensiveInStockObj is', leastExpensiveInStockObj(products))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function averagePricesInStockWithReduce(inputArrOfObjs) {
-    let inStock = inStockWithFilter(inputArrOfObjs);
-    return inStock.reduce((element, product) => element + product.priceInCents, 0) / inStock.length;
+    let inStockArrOfObjs = inStockWithFilter(inputArrOfObjs);
+    return inStockArrOfObjs.reduce((element, product) => element + product.priceInCents, 0) / inStockArrOfObjs.length;
 }
 
 console.log('averagePricesInStockWithReduce is', averagePricesInStockWithReduce(products))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function leastExpensiveInStockWithFilterReduce(inputArrOfObjs) {
     return inputArrOfObjs.filter(element => element.isInStock).reduce((element, product) =>
@@ -340,7 +350,8 @@ function leastExpensiveInStockWithFilterReduce(inputArrOfObjs) {
 
 console.log('chained - leastExpensiveInStockWithFilterReduce is', leastExpensiveInStockWithFilterReduce(products))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function leastExpensiveInStockWithReduce(inputArrOfObjs) {
     return inputArrOfObjs.reduce((accumulator, currentValue) => {
@@ -353,7 +364,8 @@ function leastExpensiveInStockWithReduce(inputArrOfObjs) {
 
 console.log('single - leastExpensiveInStockWithReduce is', leastExpensiveInStockWithReduce(products))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 /**
  *
@@ -382,6 +394,9 @@ function findAverages(inputArr) {
 console.log('findAverages is ', findAverages([3, 5, 7, 10, 0]))
 console.log('findAverages is ', findAverages([0, 3, 5, 6, 21]))
 
+/*************************************************************************************************
+ *************************************************************************************************/
+
 /**
  *
  * d26w07, Tue May 10 warmup
@@ -404,11 +419,18 @@ let classes = [
     {class: "8th grade history", students: 22}
 ];
 
+/*************************************************************************************************
+ *************************************************************************************************/
+
 function calculateTotalStudents (inputArrOfObjs) {
     return inputArrOfObjs.reduce(function (sum, student) {
         return sum + student.students;
     }, 0)
 }
+console.log('calculateTotalStudents is ', calculateTotalStudents(classes));
+
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function highestAmtOfStudentsObj (inputArrOfObjs) {
     return inputArrOfObjs.reduce(function (element, student) {
@@ -417,6 +439,10 @@ function highestAmtOfStudentsObj (inputArrOfObjs) {
             : student
     })
 }
+console.log('highestAmtOfStudentsObj is ', highestAmtOfStudentsObj(classes));
+
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function highestAmtOfStudents(inputArrOfObjs) {
     let highest = 0;
@@ -427,12 +453,10 @@ function highestAmtOfStudents(inputArrOfObjs) {
     })
     return highest;
 }
-
-console.log('calculateTotalStudents is ', calculateTotalStudents(classes));
-console.log('highestAmtOfStudentsObj is ', highestAmtOfStudentsObj(classes));
 console.log('highestAmtOfStudents', highestAmtOfStudents(classes));
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 /**
  *
@@ -531,6 +555,9 @@ function convertToObject (inputStr, inputNum) {
 }
 console.log('convertToObject', convertToObject("Intro to Programming", 20));
 
+/*************************************************************************************************
+ *************************************************************************************************/
+
 function desirableNeighborhood (inputNeighborhoodObj) {
 
     function calculateTotalRating (inputArrOfObjs) {
@@ -539,18 +566,29 @@ function desirableNeighborhood (inputNeighborhoodObj) {
         }, 0)
     }
 
+    function calculateAvgRating (inputArrOfObjs) {
+        let total = inputArrOfObjs.reduce(function (ratingSum, school) {
+            return ratingSum + school.rating;
+        }, 0)
+        return total / inputArrOfObjs.length;
+    }
+
     let medianHomePrice = false;
     let crimeRateLow = false;
     let schoolRatings = false;
     if (inputNeighborhoodObj.medianHomePrice < 300000) medianHomePrice = true;
     if (inputNeighborhoodObj.crimeRate === 'low') crimeRateLow = true;
     if (calculateTotalRating(inputNeighborhoodObj.schools) >= 24) schoolRatings = true;
+    console.log('calculateAvgRating', calculateAvgRating(inputNeighborhoodObj.schools))
     return (medianHomePrice && crimeRateLow && schoolRatings)
 }
 
 console.log('desirableNeighborhood1', desirableNeighborhood(neighborhood1));
 console.log('desirableNeighborhood2', desirableNeighborhood(neighborhood2));
 console.log('desirableNeighborhood3', desirableNeighborhood(neighborhood3));
+
+/*************************************************************************************************
+ *************************************************************************************************/
 
 const users = [
     {
@@ -600,7 +638,8 @@ function findLangsArr(inputUsers) {
 
 console.log('findLangsArr is ', findLangsArr(users))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function allLangs(foundLanguagesArr) {
     return foundLanguagesArr.reduce((accumulator, currentValue) => accumulator.concat(currentValue));
@@ -608,11 +647,12 @@ function allLangs(foundLanguagesArr) {
 
 console.log('nested - allLangs(findLangsArr(users)) is ', allLangs(findLangsArr(users)))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function uniqueLangs(bunchOfLanguages) {
     return bunchOfLanguages.reduce(function (accumulator, currentValue) {
-        if (accumulator.indexOf(currentValue) === -1) {
+        if (!accumulator.includes(currentValue)) {
             accumulator.push(currentValue);
         }
         return accumulator;
@@ -621,7 +661,8 @@ function uniqueLangs(bunchOfLanguages) {
 
 console.log('nested - uniqueLangs(allLangs(findLangsArr(users))) is ', uniqueLangs(allLangs(findLangsArr(users))));
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function findLangsWithReduce(inputUsers) {
     return inputUsers.reduce((accumulator, currentValue) => {
@@ -634,8 +675,10 @@ function findLangsWithReduce(inputUsers) {
 
 console.log('findLangsWithReduce is ', findLangsWithReduce(users))
 
-/***************************************/
-/*************https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce*****************/
+/*************************************************************************************************
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+ *************************************************************************************************/
+
 
 function allLangsWithReduce(inputUsers) {
     return inputUsers.reduce(function (previousValue, currentValue) {
@@ -645,13 +688,14 @@ function allLangsWithReduce(inputUsers) {
 
 console.log('allLangsWithReduce is ', allLangsWithReduce(users))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function uniqueLanguagesFoundWithReduce(inputUsers) {
     return inputUsers.reduce((accumulator, currentValue) => {
         let languageArray = currentValue.languages;
         languageArray.forEach(element => {
-            if (accumulator.indexOf(element) === -1) {
+            if (!accumulator.includes(element)) {
                 accumulator.push(element)
             }
         })
@@ -661,12 +705,13 @@ function uniqueLanguagesFoundWithReduce(inputUsers) {
 
 console.log('uniqueLanguagesFoundWithReduce is/are ', uniqueLanguagesFoundWithReduce(users))
 
-/***************************************/
+/*************************************************************************************************
+ *************************************************************************************************/
 
 function findJavascriptUsersWithReduce(inputUsers) {
     return inputUsers.reduce((accumulator, currentValue) => {
         if (Array.isArray(currentValue.languages)) {
-            if (currentValue.languages.indexOf('javascript') !== -1) {
+            if (currentValue.languages.includes('javascript')) {
                 accumulator.push(currentValue.name)
             }
         }
