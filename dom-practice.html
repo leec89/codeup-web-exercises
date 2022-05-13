@@ -5,6 +5,49 @@
     <title>Title</title>
 </head>
 <body>
+<!--DOM Practice Question #1-->
+<!--Create an HTML file called dom-practice.html in codeup-web-exercises repos.-->
+<!--Put a text input on an html page with id of “color”-->
+<!--Put a button on the page with id of “changeColor”-->
+<!--Use an Event listener to trigger when the button is clicked.-->
+<!--Use the value to change the background-color of the page to match the user’s input value.-->
+<!--example of input: “#00000”, “black”, “#FF00FF”-->
+<!--End of Day - Thu May 12 - d28w07-->
 
+<input id="color" type="text" placeholder="Enter color"/>           <!--var color = document.querySelector("#color")-->
+<button type="button" id="changeColor">Change the color!</button>   <!--var button = document.getElementById("changeColor")-->
+
+<hr Fri May 13 - d29w07/>
+
+<!--Create a paragraph element in your dom-practice.html and give it an ID of doubleSize-->
+<!--Add the dblclick  event listener to the paragraph.-->
+<!--When the element is double clicked, log the font-size of the element to the console. What is the return type?-->
+<p id="doubleSize">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, nesciunt?</p>
+
+
+<script>
+    /** Thu May 12 - d28w07 ******************************************************************************************/
+    // var button = document.getElementById("changeColor");
+    // var color = document.querySelector("#color")
+    // var body = document.querySelector("body")
+    //
+    function colorButton (e) {
+        document.querySelector("body").style.backgroundColor = document.querySelector("#color").value
+    }
+    // button.addEventListener('click', colorButton)
+    document.getElementById("changeColor").addEventListener('click', colorButton)
+
+    /** Fri May 13 - d29w07 ******************************************************************************************/
+
+    var para = document.getElementById("doubleSize")
+    var fontSizeParsed = parseFloat(window.getComputedStyle(document.getElementById("doubleSize")).fontSize);
+    function logSize (e) {
+        console.log(fontSizeParsed)
+        return para.style.fontSize = fontSizeParsed * 2 + 'px'
+    }
+    para.addEventListener('dblclick', logSize)
+
+
+</script>
 </body>
 </html>
