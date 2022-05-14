@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<hr Thu May 12 - d28w07/>
 <!--DOM Practice Question #1-->
 <!--Create an HTML file called dom-practice.html in codeup-web-exercises repos.-->
 <!--Put a text input on an html page with id of “color”-->
@@ -13,10 +14,11 @@
 <!--Use the value to change the background-color of the page to match the user’s input value.-->
 <!--example of input: “#00000”, “black”, “#FF00FF”-->
 <!--End of Day - Thu May 12 - d28w07-->
-
+<div class="question">
+    <h1>Question 1</h1>
 <input id="color" type="text" placeholder="Enter color"/>           <!--var color = document.querySelector("#color")-->
 <button type="button" id="changeColor">Change the color!</button>   <!--var button = document.getElementById("changeColor")-->
-
+</div>
 <hr Fri May 13 - d29w07/>
 
 <!--Create a paragraph element in your dom-practice.html and give it an ID of doubleSize-->
@@ -24,30 +26,43 @@
 <!--When the element is double clicked, log the font-size of the element to the console. What is the return type?-->
 <p id="doubleSize">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, nesciunt?</p>
 
-
-<script>
-    /** Thu May 12 - d28w07 ******************************************************************************************/
-    // var button = document.getElementById("changeColor");
-    // var color = document.querySelector("#color")
-    // var body = document.querySelector("body")
-    //
-    function colorButton (e) {
-        document.querySelector("body").style.backgroundColor = document.querySelector("#color").value
-    }
-    // button.addEventListener('click', colorButton)
-    document.getElementById("changeColor").addEventListener('click', colorButton)
-
-    /** Fri May 13 - d29w07 ******************************************************************************************/
-
-    var para = document.getElementById("doubleSize")
-    var fontSizeParsed = parseFloat(window.getComputedStyle(document.getElementById("doubleSize")).fontSize);
-    function logSize (e) {
-        console.log(fontSizeParsed)
-        return para.style.fontSize = fontSizeParsed * 2 + 'px'
-    }
-    para.addEventListener('dblclick', logSize)
+<div class="question">
+    <h1>Question 2</h1>
+    <input type="text" id="todo">
+    <button type="button" id="addTodo">Add Todo</button>
+    <ul id="todosList">
+    </ul>
+</div>
 
 
-</script>
+<div class="question">
+    <h1 id="question3">Question 3</h1>
+    <p>All these H1 Tags should be changing size!</p>
+    <button id="toggleH1">Toggle!</button>
+</div>
+
+<div class="question">
+    <br>
+    <br>
+    <h1>Question 4</h1>
+    <br>
+    <br>
+</div>
+<div class="question">
+    <h1>Question 5</h1>
+    <button id="google">Google</button>
+</div>
+<div class="question">
+    <h1>Question 6</h1>
+    <label for="userInput">Enter String here: </label>
+    <input type="text" id="userInput" placeholder="Enter something to add!">
+    <button id="submitString">Add</button>
+    <p id="madLib">Hello</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/dom-practice.js"></script>
+
 </body>
+
 </html>
