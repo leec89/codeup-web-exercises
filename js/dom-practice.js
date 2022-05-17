@@ -16,11 +16,11 @@
 
     button.addEventListener('click', colorButton)
 // document.getElementById("changeColor").addEventListener('click', colorButton)
-})();
 
-/** Fri May 13 - d29w07 ******************************************************************************************/
 
-(function () {
+    /** Fri May 13 - d29w07 ******************************************************************************************/
+
+
     let para = document.getElementById("doubleSize");
     let fontSizeParsed = parseFloat(window.getComputedStyle(document.getElementById("doubleSize")).fontSize);
 
@@ -29,9 +29,9 @@
     }
 
     para.addEventListener('dblclick', logSize);
-})();
 
-/** Fri May 13 - d29w07 *******DOM Practice Question #2**********************************************************/
+
+    /** Fri May 13 - d29w07 *******DOM Practice Question #2**********************************************************/
 
 // 1. Create a button with the id of addTodo. Create an input of type text with the id of "todo"
 // 2. Create an unordered list with the id="todosList"
@@ -42,39 +42,18 @@
 // 5. If the value for the input is empty. Prevent it from creating another <li> element
 
 
-/**
- *
- * <input id="color" type="text" placeholder="Enter color"/>           <!--var color = document.querySelector("#color")-->
- * <button type="button" id="changeColor">Change the color!</button>   <!--var button = document.getElementById("changeColor")-->
- *
- * var button = document.getElementById("changeColor");
- * var color = document.querySelector("#color")
- * var body = document.querySelector("body")
- *
- * function colorButton(e) {
- *     body.style.backgroundColor = color.value
- * }
- * button.addEventListener('click', colorButton)
- *
- *     <input type="text" id="todo">
- *     <button type="button" id="addTodo">Add Todo</button>
- *     <ul id="todosList">
- *     </ul>
- *
- */
-
-(function () {
-    let button2 = document.getElementById("addTodo");
+    let todoButton = document.getElementById("addTodo");
     let todoInput = document.querySelector("#todo")
-    let ulList = document.querySelector("#todosList")
+    let todoList = document.querySelector("#todosList")
 
 //
-    function colorButton2(e) {
-        ulList.innerHTML = '<li>todoInput.value</li>'
+    function listItems() {
+        if (todoInput.value === '') return
+        todoList.innerHTML += '<li>' + todoInput.value + '</li>'
+        todoInput.value = ''
     }
 
-    button2.addEventListener('click', colorButton2)
-})();
+    todoButton.addEventListener('click', listItems)
 
 
 // DOM Practice Question #3
@@ -88,6 +67,35 @@
 // use that button to stop and restart the h1 tags from changing size.
 
 
+    function intervalFunction() {
+        var h1Tags = document.getElementsByTagName('h1');
+        for (var i = 0; h1.length; i++) {
+            var currentFontSize = h1Tags[1].style.fontSize
+            if (h1Tags[i].style.fontSize === "10px") {
+                h1Tags[i].style.fontSize = "20px";
+            } else {
+                h1Tags[i].style.fontSize = "10px";
+            }
+        }
+    }
+
+    var interval;
+    var isOn = false;
+
+    // var interval = setInterval(intervalFunction, 1000);
+    var toggleH1s = document.querySelector('#toggleH1');
+
+    toggleH1s.addEventListener('click', function () {
+        isOn = !isOn;
+        if (isOn) {
+            interval = setInterval(intervalFunction, 1000);
+        } else {
+            clearInterval(interval)
+        }
+
+    })
+
+
 // let button3 = document.getElementById("toggleH1");
 // let allOfThem = document.getElementsByTagName('h1');
 //
@@ -98,47 +106,84 @@
 //
 // }
 
-(function () {
-var button3 = document.getElementById("toggleH1");
-console.log(button3)
-function myFunction() {
-    var fontSizeParsed = parseInt(window.getComputedStyle(button3).fontSize) + 5;
-    console.log(fontSizeParsed)
+// (function () {
+// var button3 = document.getElementById("toggleH1");
+// console.log(button3)
+// function myFunction() {
+//     var fontSizeParsed = parseInt(window.getComputedStyle(button3).fontSize) + 5;
+//     console.log(fontSizeParsed)
+//
+//     var allOfThem = document.getElementsByTagName('h1');
+//     for (let i = 0; i < allOfThem.length; i++) {
+//         if (parseFloat(allOfThem[i].style.fontSize) === fontSizeParsed) {
+//             allOfThem[i].style.fontSize = fontSizeParsed + 40 + 'px';
+//         } else {
+//             allOfThem[i].style.fontSize = fontSizeParsed + 'px';
+//         }
+//     }
+// }
+//
+// button3.addEventListener('click', myFunction);
+// })();
 
-    var allOfThem = document.getElementsByTagName('h1');
-    for (let i = 0; i < allOfThem.length; i++) {
-        if (parseFloat(allOfThem[i].style.fontSize) === fontSizeParsed) {
-            allOfThem[i].style.fontSize = fontSizeParsed + 40 + 'px';
-        } else {
-            allOfThem[i].style.fontSize = fontSizeParsed + 'px';
-        }
-    }
-}
+// (function () {
+// let h1Elements = document.getElementsByTagName("h1");
+//
+// setInterval(function () {
+//     for (let i = 0; i < h1Elements.length; i++) {
+//         if (h1Elements[i].style.fontSize !== "10px") {
+//             h1Elements[i].style.fontSize = "10px";
+//         } else {
+//             h1Elements[i].style.fontSize = "20px";
+//         }
+//     }
+// }, 1000);
 
-button3.addEventListener('click', myFunction);
-})();
+
+// })();
 // DOM Question #4
 
 // When the mouse enters the content area of the 4th div with the class of "question", an alert should pop up
 // that reads "CONGRATULATIONS ON YOUR NEW CRUISE!";
 
-(function () {
-    var h1Tags = document.querySelector('.question');
-    console.log(h1Tags)
+
+    // var h1FourthTag = document.getElementsByClassName('question')[3];
+
+    var h1FourthTag = document.querySelector('.question:nth-of-type(4)');
+
+    console.log(h1FourthTag)
+
     function myFunction() {
         alert('CONGRATULATIONS ON YOUR NEW CRUISE!')
     }
-    h1Tags.addEventListener('mouseover', myFunction);
+
+    h1FourthTag.addEventListener('mouseover', myFunction);
+
 })();
 
 // DOM Question# #5
 
 // When a user clicks a button labeled "Google" the user should be redirected to the "https://google.com"
 
+var redirectButton = document.getElementById('google')
+
+redirectButton.addEventListener('click', function () {
+    window.location = 'https:www.google.com'
+    // location.assign('https:www.google.com')
+})
 
 // DOM Question #6
 
 // When the user types something into an input element, the value should be concatenated
 // onto the paragraph with the ID of "madLib" once the submit button has been clicked.
 
+var madLibButton = document.getElementById('submitString');
+var madLibInput = document.querySelector('#userInput');
+var madLibString = document.querySelector('#madLib');
 
+
+madLibButton.addEventListener('click', function () {
+    madLibString.innerHTML += madLibInput.value;
+
+
+})
