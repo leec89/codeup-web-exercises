@@ -176,7 +176,6 @@
     </section>
 
 
-
     <section id="keyboardEvents">
         <h2>Keyboard Events</h2>
 
@@ -272,44 +271,42 @@
 
     // select the anchor tags that are direct children of the li tag which is a direct child of the ul tag
     navElements.click(function (e) {
-        console.log("e:", e.target.href);
+        // console.log('e:', e.target.href);
         var href = e.target.href;
 
-        // remove class active from ALL nav elements.
+    // remove class active from ALL nav elements.
+    navElements.get().forEach(function (item) {         // loop over elements, remove '.active' from all of them
+        item.classList.remove("active");
+    })
 
-        navElements.get().forEach(function (item) {
-            // loop over elements, remove class from all of them
-            item.classList.remove("active");
-        })
+    e.target.classList.add("active");                   // add '.active' to the one clicked.
 
-        // add the class to the one clicked.
-        e.target.classList.add("active");
+    // returns Jquery elements that wrap the HTML element so we can use jquery methods to
+    // manipulate the element.
+    var mouseEvents = $("#mouseEvents").get(0);         // turns this into an HTML Element;
+        console.log(mouseEvents)
 
-        // returns Jquery elements that wrap the HTML element and we can use jquery methods to
-        // manipulate these element.
-        var mouseEvents = $("#mouseEvents").get(0); // turns this into an HTML Element;
-        var keyboardEvents = $("#keyboardEvents").get(0);
+    var keyboardEvents = $("#keyboardEvents").get(0);
 
-        if (href.includes("keyboardEvents")) {
-            // if see keyboard events
-            // hide all the mouse events
-            mouseEvents.classList.add("hide");
-            // show all the keyboard ones
-            keyboardEvents.classList.remove("hide");
-        } else if (href.includes("mouseEvents")) {
-            mouseEvents.classList.remove("hide");
-            keyboardEvents.classList.add("hide");
-        } else { // all case
-            mouseEvents.classList.remove("hide");
-            keyboardEvents.classList.remove("hide");
-        }
+    if (href.includes("keyboardEvents")) {              // if keyboard events
+        mouseEvents.classList.add("hide");              // add '.hide' all the mouse events (hides)
+        keyboardEvents.classList.remove("hide");        // remove class '.hide' all the keyboard ones (reveals)
+
+    } else if (href.includes("mouseEvents")) {          // if mouse events
+        mouseEvents.classList.remove("hide");           // remove '.hide' all the mouse events (reveals)
+        keyboardEvents.classList.add("hide");           // add class '.hide' all the keyboard ones (hides)
+
+    } else {                                            // all case - reveal both mouse and keyboard
+        mouseEvents.classList.remove("hide");           // remove '.hide' all the mouse events (reveals)
+        keyboardEvents.classList.remove("hide");        // remove class '.hide' all the keyboard ones (reveals)
+    }
     })
 
     // TODO: Create
 
     $("#mouseEvents, #keyboardEvents").dblclick(function (e) {
 
-        // whats was clicked?
+        // what was clicked?
 
         // if(e.target.innerText.includes("Mouse Events")) {
         //     $("#mouseEvents > article").get().forEach(function (item) {
