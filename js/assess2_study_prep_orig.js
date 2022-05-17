@@ -30,3 +30,24 @@ console.log('returnPriceOfBeer(inCart) should be 5. Your answer:', returnPriceOf
 console.log('totalPriceOfBasket(inCart) should be 28. Your answer:', totalPriceOfBasket(inBasket));
 console.log('avgPriceInBasket(inCart) should be 7. Your answer:', avgPriceInBasket(inBasket));
 
+let grades = [90, 95, 73, 60]
+
+function tracker(inElement, inTotal, inLoopPass) {
+    console.log('forEach element is', inElement)
+    console.log('forEach total is', inTotal)
+    alert('loopPass # ' + inLoopPass)
+}
+
+function forEachFindAverage(passInParameter) {
+    let total = 0;
+    var loopPass = 0;                               // used only for tracking output, not to find average
+    passInParameter.forEach((element) => {
+        total = element + total
+        loopPass++                                  // used only for tracking output, not to find average
+        tracker(element, total, loopPass)           // used only for tracking output, not to find average
+    })
+    return total / passInParameter.length;
+
+}
+console.log('forEachFindAverage is', forEachFindAverage(grades))
+
