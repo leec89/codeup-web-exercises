@@ -69,7 +69,7 @@
 
     function intervalFunction() {
         var h1Tags = document.getElementsByTagName('h1');
-        for (var i = 0; h1.length; i++) {
+        for (var i = 0; h1Tags.length; i++) {
             var currentFontSize = h1Tags[1].style.fontSize
             if (h1Tags[i].style.fontSize === "10px") {
                 h1Tags[i].style.fontSize = "20px";
@@ -187,3 +187,40 @@ madLibButton.addEventListener('click', function () {
 
 
 })
+
+
+/** Tue May 17 - d31w08 ******************************************************************************************/
+
+
+// TODO: add functionality such that the number in the input will be added to the total in the h1 when the button is clicked
+// No changes to the existing HTML is needed, other than adding the needed jQuery/JavaScript.
+
+// HINTS
+
+// add an event listener on the button click that will log to the console the number value in the text input (you will need to prevent the default button behavior of submitting the form)
+// $('#add-btn').click(function(e) {
+//     e.preventDefault();
+//     let inputNumber = parseFloat($('#number-input').val());
+//     let outputNumber = parseFloat($('#number-output').text());
+//     $('#number-output').text(inputNumber + outputNumber);
+// });
+// modify the event listener to parse the text value into a number
+// target the output element inner text and parse it into a number
+// add the input and output values together and update the output with the sum of the current input and output
+
+
+// jQuery Solution
+$('button').click(function(e) {
+    e.preventDefault();
+    let input = parseFloat($('#number-input').val());
+    let output = parseFloat($('#number-output').text());
+    $('#number-output').text(input + output);
+});
+
+// Vanilla JS Solution
+// document.querySelector('button').addEventListener('click', function(e) {
+//     e.preventDefault();
+//     let input = parseFloat(document.querySelector('#number-input').value);
+//     let output = parseFloat(document.querySelector('#number-output').innerText);
+//     document.querySelector('#number-output').innerText =  input + output;
+// });
