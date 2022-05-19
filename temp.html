@@ -5,6 +5,87 @@
     <title>Title</title>
 </head>
 <body>
+<button id="btnToClick">Click Me</button>
+<h1>List One</h1>
+<ul>
+    <li class="odd list-one-item">List 1, Item 1</li>
+    <li class="even list-one-item">List 1, Item 2</li>
+</ul>
+<h1>List Two</h1>
+<ul>
+    <li class="odd list-two-item">List 2, Item 1</li>
+    <li class="even list-two-item">List 2, Item 2</li>
+</ul>
+<script>
+    'use strict';
 
+    // this code will produce a console log every second
+    // when count >= max, the interval is cancelled, and the logging will stop
+
+    var count = 0;
+    var max = 10;
+    var interval = 250; // interval time in milliseconds
+
+    var intervalId = setInterval(function () {
+        if (count >= max) {
+            clearInterval(intervalId);
+            console.log('All done');
+        } else {
+            count++;
+            console.log('Repeating this line ' + count);
+        }
+    }, interval);
+
+    var delay = 2000; // delay time in milliseconds
+
+    var timeoutId = setTimeout(function () {
+        alert('Here is a delayed hello!');
+    }, delay);
+
+    // to cancel the timeout, you can call
+    // clearTimeout(timeoutId);
+    // prior to the delay expiring
+
+    (function() {
+        var btnToClick = document.getElementById('btnToClick');
+
+        console.log(btnToClick); // prints <button id="btnToClick">Click Me</button>
+    })();
+
+    (function() {
+        // Get all elements with class 'even'
+        var evenElements = document.getElementsByClassName('even');
+
+        // Print the first element
+        console.log(evenElements[0]); // prints <li class="even list-one-item">List 1, Item 2</li>
+
+        // Print all elements
+        for (var i = 0; i < evenElements.length; i++) {
+            console.log(evenElements[i]);
+        }
+
+        // Prints:
+        // <li class="even list-one-item">List 1, Item 2</li>
+        // <li class="even list-two-item">List 2, Item 2</li>
+
+        var listItems = document.getElementsByTagName('li');
+
+        // Print the first list item
+        console.log(listItems[0]); // <li class="odd list-one-item">List 1, Item 1</li>
+
+        // Print all the list items
+        for (var i = 0; i < listItems.length; i++) {
+            console.log(listItems[i]);
+        }
+
+        // Prints
+        // <li class="odd list-one-item">List 1, Item 1</li>
+        // <li class="even list-one-item">List 1, Item 2</li>
+        // <li class="odd list-two-item">List 2, Item 1</li>
+        // <li class="even list-two-item">List 2, Item 2</li>
+    })();
+
+
+</script>
 </body>
 </html>

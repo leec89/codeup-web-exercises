@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Get the data-id Attribute</title>
+    <style>
+        ul li {
+            display: inline-block;
+            margin: 10px;
+            list-style: none;
+            opacity: 0.8;
+        }
+
+        ul li:hover {
+            opacity: 1;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var origNote = $('p').text()
+            $(".gallery li").on("mouseover", function () {
+                var dataId = $(this).attr("data-id");
+                var noteBottom = $('p').text();
+                var newNoteBottom = noteBottom + ' ' + dataId;
+                console.log(noteBottom);
+                $('p').text(newNoteBottom);
+            });
+            $(".gallery li").on("mouseout", function () {
+                $('p').text(origNote);
+            })
+        });
+
+    </script>
+</head>
+<body>
+<ul class="gallery">
+    <li data-id="1">
+        <a href="#">
+            <img src="./img/club.jpg" alt="Club">
+        </a>
+    </li>
+    <li data-id="2">
+        <a href="#">
+            <img src="./img/diamond.jpg" alt="Diamond">
+        </a>
+    </li>
+    <li data-id="3">
+        <a href="#">
+            <img src="./img/spade.jpg" alt="Spade">
+        </a>
+    </li>
+    <li data-id="4">
+        <a href="#">
+            <img src="./img/heart.jpg" alt="Heart">
+        </a>
+    </li>
+</ul>
+<p><strong>Note:</strong> Mouseover on any image to get its data-id attribute.</p>
+</body>
+</html>

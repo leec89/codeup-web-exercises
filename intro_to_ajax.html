@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intro to AJAX</title>
+</head>
+
+<style>
+    #murals-info {
+        margin: 10px auto;
+        border: 5px ridge blueviolet;
+        padding: 15px;
+        width: 25%;
+        text-align: center;
+    }
+
+    #murals-info:hover {
+        cursor: pointer;
+        background-color: aliceblue;
+    }
+
+    #card-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid darkgray;
+        padding: 5px;
+        width: 330px;
+    }
+
+</style>
+<body>
+<h1>Intro to AJAX</h1>
+<img src="img/club.jpg">
+<section id="murals-info">
+    <p>I want to know about murals</p>
+</section>
+<section id="card-section"></section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script crossorigin="anonymous">
+    $.ajax('data/murals.json').done(function (data) {
+        console.log(data)
+    })
+    $("#murals-info").click(function () {
+        $.ajax("/data/murals.json").done(function (data) {
+            data.forEach(function (mural) {
+                var title = '';
+                mural.artwork_title ? title = mural.artwork_title : title = "Untitled";
+                $("#card-section").append(
+                    '<article class="card">' +
+                    '<p>' + title + ' by ' +
+                    mural.artist_credit + '</p>' + '' +
+                    '</article>'
+                );
+            });
+        });
+    });
+
+
+</script>
+</body>
+</html>

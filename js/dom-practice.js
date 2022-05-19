@@ -177,20 +177,22 @@ redirectButton.addEventListener('click', function () {
 // When the user types something into an input element, the value should be concatenated
 // onto the paragraph with the ID of "madLib" once the submit button has been clicked.
 
-var madLibButton = document.getElementById('submitString');
-var madLibInput = document.querySelector('#userInput');
-var madLibString = document.querySelector('#madLib');
+// var madLibButton = document.getElementById('submitString');
+// var madLibInput = document.querySelector('#userInput');
+// var madLibString = document.querySelector('#madLib');
+//
+// madLibButton.addEventListener('click', function () {
+//     madLibString.innerHTML += madLibInput.value;
+// })
 
-
-madLibButton.addEventListener('click', function () {
-    madLibString.innerHTML += madLibInput.value;
-
-
-})
-
+$("#submitString").click(function(){
+    var str = $("#userInput").val();
+    var hello = $('#madLib').html();
+    var newVal = hello + str;
+    $('#madLib').text(newVal)
+});
 
 /** Tue May 17 - d31w08 ******************************************************************************************/
-
 
 // TODO: add functionality such that the number in the input will be added to the total in the h1 when the button is clicked
 // No changes to the existing HTML is needed, other than adding the needed jQuery/JavaScript.
@@ -208,7 +210,6 @@ madLibButton.addEventListener('click', function () {
 // target the output element inner text and parse it into a number
 // add the input and output values together and update the output with the sum of the current input and output
 
-
 // jQuery Solution
 $('button').click(function(e) {
     e.preventDefault();
@@ -218,9 +219,9 @@ $('button').click(function(e) {
 });
 
 // Vanilla JS Solution
-// document.querySelector('button').addEventListener('click', function(e) {
-//     e.preventDefault();
-//     let input = parseFloat(document.querySelector('#number-input').value);
-//     let output = parseFloat(document.querySelector('#number-output').innerText);
-//     document.querySelector('#number-output').innerText =  input + output;
-// });
+document.querySelector('button').addEventListener('click', function(e) {
+    e.preventDefault();
+    let input = parseFloat(document.querySelector('#number-input').value);
+    let output = parseFloat(document.querySelector('#number-output').innerText);
+    document.querySelector('#number-output').innerText =  input + output;
+});

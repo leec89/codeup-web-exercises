@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Categories</th>
+    </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+<br>
+<button id="refresh-btn">Refresh</button>
+
+<script>
+    (function () {
+        "use strict";
+        // TODO: Create an AJAX GET request for the file under data/inventory.json
+
+        function renderTable(itemObjOfJSON) {
+            let htmlToRender = '<tr class="inventory">';
+            htmlToRender += '<td>' + itemObjOfJSON.title + '</td>';
+            htmlToRender += '<td>' + itemObjOfJSON.quantity + '</td>';
+            htmlToRender += '<td>' + itemObjOfJSON.price + '</td>';
+            htmlToRender += '<td>' + itemObjOfJSON.categories + '</td>';
+            htmlToRender += '</tr>';
+
+            return htmlToRender;
+        }
+
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+
+        function tableBuild() {
+
+            $.ajax("/data/inventory.json").done(function (data) {
+
+                data.forEach(function (item) {
+                    $("#insertProducts").append(renderTable(item));
+                });
+            });
+        }
+        tableBuild()                                    //initial build of table
+
+        $("#refresh-btn").on('click', function() {      //rebuild of table after clicking button
+            $("#insertProducts").text('')               //empty the table
+            tableBuild();                               //build the table based on what's in the inventory
+        })
+
+
+    })();
+</script>
+
+</body>
+</html>

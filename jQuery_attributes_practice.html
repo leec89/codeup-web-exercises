@@ -35,6 +35,7 @@
 <body>
 <main class="container">
     <h1 class="text-center">Sign In</h1>
+    <h1 class="text-center">Sign In2</h1>
     <div class="box"></div>
     <div class="row">
         <div class="col-md-6">
@@ -65,28 +66,40 @@
 
 // ==== Getter (returns a value)
 
+        console.log($('h1').text())                         //shows 'Sign In' in console
+        console.log($('h1').eq(1).html())                         //shows the second 'Sign In2' with HTML method
 
 // get the current inner HTML of the h1 element
 
+        console.log($('h1').html())
 
 // get the current display value of the box
+
+        console.log($('h1').css('fontSize'))
+        console.log($('h1').css('background-color'))
 
 
 // ==== Setter (returns a jQuery object)
 
 // make box bigger and round with multiple css methods
 
-
+        // $('.box').css('width', '200px')
+        //     .css('height', '200px')
+        //     .css('border-radius', '50%');
 
 // ==== addClass() and removeClass()
 
 // Apply cool-box to .box initially
 
-
+        // $('.box').addClass('cool-box')
 
 // Apply cool-box only when hovering over .box
 
-
+        $('.box').hover(function () {
+            $(this).addClass('cool-box')
+        }, function () {
+            $(this).removeClass('cool-box')
+        });
 
 
 // only make submit button visible if password fields match and are at least 5 chars long
