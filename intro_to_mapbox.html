@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intro to Mapbox</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map {
+            width: 50%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id='map' class="mx-auto mt-4"></div>
+
+<form class="mx-auto w-25 mt-2">
+    <label for="zoom">Set zoom:</label>
+    <input class="my-2" type="text" name="zoom" id="zoom">
+    <button id="zoomSubmit">Submit</button>
+</form>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibGVlYzg5IiwiYSI6ImNsM2Q2MnJrMjAxMW4zZXA2aXZqdmw2dTMifQ.g1aWmxPSTkyeqlgqOkKC5w';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-97.75, 30.25], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+    map.setZoom(12)
+    map.setCenter([-97.7431, 30.2672])
+
+</script>
+
+</body>
+</html>
