@@ -93,24 +93,33 @@
             units: "imperial"
         }).done(function (data) {
             // console.log('current unix time is', data.current.dt)
-            let unixTimeStamp = data.current.dt;
 
-            let timestampInMilliSeconds = unixTimeStamp*1000;
-            let date = new Date(timestampInMilliSeconds);
+            function unixTimeProcess(inputUnixTime) {
+                let unixTimeStamp = inputUnixTime;
 
-            let day = (date.getDate() < 10 ? '0' : '') + date.getDate();
-            let month = (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1);
-            let year = date.getFullYear();
+                let timestampInMilliSeconds = unixTimeStamp * 1000;
+                let date = new Date(timestampInMilliSeconds);
 
-            let hours = ((date.getHours() % 12 || 12) < 10 ? '0' : '') + (date.getHours() % 12 || 12);
-            let minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
-            let meridiem = (date.getHours() >= 12) ? 'pm' : 'am';
+                let day = (date.getDate() < 10 ? '0' : '') + date.getDate();
+                let month = (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1);
+                let year = date.getFullYear();
 
-            var formattedDate = day + '-' + month + '-' + year + ' at ' + hours + ':' + minutes + ' ' + meridiem;
+                let hours = ((date.getHours() % 12 || 12) < 10 ? '0' : '') + (date.getHours() % 12 || 12);
+                let minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+                let meridiem = (date.getHours() >= 12) ? 'pm' : 'am';
 
-            alert(date);
+                const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                let current_datetime = new Date()
+                let formatted_date = months[current_datetime.getMonth()] + ' ' + current_datetime.getDate() + ", " + current_datetime.getFullYear()
+                console.log(formatted_date)
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                console.log(date.toLocaleDateString('en-US', options))
 
-            $("#day").html(formattedDate);
+                var formattedDate = day + '-' + month + '-' + year + ' at ' + hours + ':' + minutes + ' ' + meridiem;
+                return date.toLocaleDateString('en-US', options);
+            }
+
+            $("#day").html(unixTimeProcess(data.current.dt));
             $("#weather").html("<img></img>");
             $("#temp").html("Temp: " + data.current.temp + "°F");
             $("#pressure").html("Pressure: " + data.current.pressure);
@@ -120,14 +129,17 @@
             $("#forecast").html("");
             data.daily.forEach(function (day, index) {
                 console.log(day, index);
-                if (index < 5) {
+                console.log(day.dt);
+                console.log(unixTimeProcess(day.dt))
+                if ((index > 0) && (index < 6)) {
                     $("#forecast").append(
                         "<div class='card card-color'>" +
-                        "<span>" + day.temp.max + "° / " + day.temp.min + "°</span>" +
-                        "<span class=''>Description: " + day.weather[0].description + "</span>" +
-                        "<span class=''>Pressure: " + day.pressure + "</span>" +
-                        "<span class='''>Humidity: " + day.humidity + "</span>" +
-                        "<span class=''>Wind: " + day.wind_speed + "</span>" +
+                            "<span>" + unixTimeProcess(day.dt) + "</span>" +
+                            "<span>" + 'High: ' + day.temp.max + "° / " + 'Low: ' + day.temp.min + "°</span>" +
+                            "<span class=''>Description: " + day.weather[0].description + "</span>" +
+                            "<span class=''>Pressure: " + day.pressure + "</span>" +
+                            "<span class='''>Humidity: " + day.humidity + "</span>" +
+                            "<span class=''>Wind: " + day.wind_speed + "</span>" +
                         "</div>"
                     );
                 }

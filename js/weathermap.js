@@ -59,7 +59,9 @@ function getWeather(lat, lon) {
             console.log(day, index);
             if (index < 5) {
                 $("#forecast").append(
-                    "<div class='card card-color'><span>" + day.temp.max + "° / " + day.temp.min + "°</span>" +
+                    "<div class='card card-color'>" +
+                    "<span>" + day.date + "</span>" +
+                    "<span>" + day.temp.max + "° / " + day.temp.min + "°</span>" +
                     "<span class=''>Description: " + day.weather[0].description + "</span>" +
                     "<span class=''>Pressure: " + day.pressure + "</span>" +
                     "<span class='''>Humidity: " + day.humidity + "</span>" +
