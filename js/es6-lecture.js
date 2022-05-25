@@ -53,36 +53,36 @@
 
 // "You had me at 'meat tornado'" - Ron Swanson
 
-// let firstName = "Ron";
-// let lastName = "Swanson";
-//
-// let quote = "";
-// quote += '"You had me at \'meat tornado\'" - ';
-// quote += firstName + " " + lastName;
-//
-// console.log(quote);
+let firstName = "Ron";
+let lastName = "Swanson";
+
+let quote = "";
+quote += '"You had me at \'meat tornado\'" - ';
+quote += firstName + " " + lastName;
+
+console.log(quote);
 
 
 
 // ES6 Template Strings...
 
-// let easierQuote = `"You had me at 'meat tornado'" - ${firstName} ${lastName}`;
+let easierQuote = `"You had me at 'meat tornado'" - ${firstName} ${lastName}`;
 //
-// console.log(easierQuote);
+console.log(easierQuote);
 
 // Very helpful for building HTML with JS
 
-// let items = ['apple', 'grape', 'orange'];
+let items = ['apple', 'grape', 'orange'];
+
+let itemsHtml = `
+    <ul>
+        <li>${items[0]}</li>
+        <li>${items[1]}</li>
+        <li>${items[2]}</li>
+    </ul>
+`;
 //
-// let itemsHtml = `
-//     <ul>
-//         <li>${items[0]}</li>
-//         <li>${items[1]}</li>
-//         <li>${items[2]}</li>
-//     </ul>
-// `;
-//
-// console.log(itemsHtml);
+console.log(itemsHtml);
 // document.write(itemsHtml);
 
 // Can pass in expressions to ${}
@@ -211,6 +211,12 @@
 
 let doubleInput = input => input * 2;
 console.log(doubleInput(2))
+
+// TODO: Write an arrow function named "highFive" which accepts a string and alerts the user's input, asking for a high five.
+// Example: highFive("Go") returns "Go, high five!"
+
+let highFive = input => alert(`${input}, high five!`)
+highFive('Go')
 
 
 // ============== Default Parameter Values
