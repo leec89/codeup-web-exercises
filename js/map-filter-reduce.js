@@ -38,6 +38,15 @@ const users = [
 
 /*** Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array. */
 
+let numbers = [1,2,3,4,5,6]
+let findOdds = numbers.filter((element, index, array) => {
+    // console.log('element is', element)
+    // console.log('index is', index)
+    // console.log('array is', array)
+    element % 2 === 1
+})
+console.log(findOdds)
+
 let usersThreeLangs = users.filter(user => user.languages.length >= 3)
 console.log(usersThreeLangs)
 
