@@ -32,7 +32,7 @@ console.log('numbersTotalWithForEach is:', numbersTotalWithForEach(numbers))
 // RUN: finding total with reduce
 
 function numbersTotalWithReduce (numbersIn) {
-    return numbersIn.reduce((sum, item) => sum + item)
+    return numbersIn.reduce((sum, number) => sum + number)
 }
 console.log('numbersTotalWithReduce is:', numbersTotalWithReduce(numbers))
 

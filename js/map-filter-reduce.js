@@ -67,12 +67,12 @@ console.log(usersYrsExpAvg)
 
 /*** Use .reduce to get the longest email from the list of users. */
 
-let findLongestEmail = users.reduce((bucket, person) => {
+let findLongestEmail = users.reduce((bucket,person) => {
     if (bucket.length < person.email.length) {
         bucket = person.email
     }
     return bucket
-}, '')
+},'')
 console.log(findLongestEmail)
 
 /*** Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin. */
