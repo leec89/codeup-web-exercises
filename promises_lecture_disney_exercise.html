@@ -119,7 +119,7 @@
     const getRandom = (resolve, reject) => {
         const isResolved = (Math.random() > 0.6)
 
-        if (isResolved) {
+        if(isResolved) {
             resolve("Resolved!"); // IF something went well ->  resolve
         } else {
             reject("Rejected!"); // IF Something went bad  ->  reject
@@ -144,7 +144,7 @@
         (response) => {
             console.log("inline handler: response :", response);
             // what am i going to do next?
-        }).catch((response) => {
+        } ).catch((response) => {
         console.log("inline handler: response bad : ", response);
     })
 
@@ -209,15 +209,15 @@
 
     const handleGoodAll = (responses) => {
         console.log("responses:", responses)
-        const total = responses.reduce((p, c) => p + c);
-        console.log("total", total);
+        const total = responses.reduce((p,c) => p + c);
+        console.log("total",total);
     }
 
     const handleBadAll = (responses) => {
         console.log("bad all - responses:", responses)
     }
 
-    Promise.all([p1, p3, p2]).then(
+    Promise.all([p1,p3,p2]).then(
         handleGoodAll, handleBadAll
     ).catch((res) => {
         console.log(res);
@@ -254,18 +254,33 @@
             .then((res) => res.json())
             .then((res) => createPokemon(res));
 
-    const createPokemon = ({name, sprites, stats}) => {
+    const createPokemon = ({ name, sprites, stats}) => {
         document.getElementById("pokemon").innerHTML +=
             `<div class="pokemon">
-                <h3>${name}</h3>
-                <img src="${sprites.front_default}">
-                  <ul>
-                    ${stats.map(({base_stat, stat}) => {
-                        return `<li>${stat.name} - ${base_stat}</li>`
-                    }).join("")}
-                   </ul>
-             </div>`;
+                    <h3>${name}</h3>
+                    <img src="${sprites.front_default}">
+                      <ul>
+                        ${stats.map(({base_stat, stat}) => {
+                return `<li>${stat.name} - ${base_stat}</li>`}).join("")}
+                    </ul>
+                </div>`;
     };
+    var names = []
+     fetch(pokemonAPI)
+        .then(res => res.json())
+        .then(data => data.results.forEach((pokemon) => {
+            names.push(pokemon.name)
+            // console.log(pokemon.name)
+        }))
+    console.log(names)
+
+    console.log(names.length)
+
+    names.forEach(name => {
+        // fetch(pokemonAPI + name)
+        //     .then((res) => createPokemon(res))
+        console.log(name)
+    });
 
 
     //TODO: Multiple pokemon at once! (All vs Race)
@@ -293,11 +308,14 @@
     Promise.all(arrayOfPokemon).then(arrayOfResponses => {
         console.log("arrayOfResponses :", arrayOfResponses);
 
-        arrayOfResponses.forEach((name) => {
-            name.json().then((res) => createPokemon(res));
+        // arrayOfResponses.forEach((name) => {
+        //     name.json().then((res) => createPokemon(res));
+        // })
+
         })
 
-    });
+
+
 
 
     // TODO: Demo DOM Interaction
@@ -306,7 +324,7 @@
 
     $("#search").keyup((e) => {
         console.log("e.target.value:", e.target.value);
-        if (e.key === "Enter") fetch(pokemonAPI + e.target.value)
+        if(e.key === "Enter") fetch(pokemonAPI + e.target.value)
             .then(res => res.json())
             .then(res => createPokemon(res))
             .catch(res => alert("No results!"));
@@ -318,7 +336,7 @@
     //DOCS: "https://disneyapi.dev/docs";
 
 
-    const createCharacter = ({name, imageUrl}) => {
+    const createCharacter = ({ name, imageUrl }) => {
         document.getElementById("disney").innerHTML +=
             `<li class="disney">
                         <h3>${name}</h3>
@@ -327,13 +345,14 @@
     };
 
 
+
     fetch(disneyAPI).then(res => res.json()).then((res) => {
 
         document.getElementById("disney").innerHTML = '<ul>'
 
         res.data.forEach((char) => {
             // map to
-            console.log("char :", char);
+            // console.log("char :", char);
             createCharacter(char);
         })
         document.getElementById("disney").innerHTML += '</ul>'
