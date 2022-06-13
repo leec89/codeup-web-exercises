@@ -1,36 +1,35 @@
 /** Ways of getting grandparent element **/
 
-// const grandParent = document.getElementsByClassName("grandparent")     // returns HTML collection
+// const grandParent = document.getElementsByClassName("grandparent")  // returns HTMLCollection (gPW1)
 // const grandParentArr = Array.from(grandParent)
 // changeColor(grandParentArr[0])
 // console.log(grandParentArr[0])
 
-// const grandParent = document.getElementById("grandparent-id")          // gPW2: grandParentWay2
+// const grandParent = document.getElementById("grandparent-id")       // returns div block (gPW2)
 // changeColor(grandParent)
 // console.log(grandParent)
 
-// const grandParent = document.querySelector(".grandparent")             // gPW3: grandParentWay3
+// const grandParent = document.querySelector(".grandparent")          // returns HTMLDivElement (gPW3)
 // changeColor(grandParent)
 // console.log(grandParent)
 
 /** Ways of getting parent(s) element(s) **/
 
-// const parent = document.getElementsByClassName("parent")           // returns HTML collection of all parents
-// const parents = Array.from(parent)                                    // turns HTML collection into array
+// const parent = document.getElementsByClassName("parent")           // returns HTMLCollection of all parents
+// console.log(parent)
+// const parents = Array.from(parent)                                 // turns HTMLCollection into array
+// changeColor(parents[0])                                            // changes color of first parent
+// changeColor(parents[1])                                            // changes color of second parent
 // console.log(parents)
 // parents.forEach(changeColor)                                       // changes color of all parents
 
-// const parent = document.querySelector(".parent")                   // gets to first parent
+// const parent = document.querySelector(".parent")                   // returns HTMLDivElement, first parent
+// console.log(parent)
 // changeColor(parent)
 
-// const parents = Array.from(document.querySelectorAll(".parent"))   // turns HTML collection into array
+// const parents = document.querySelectorAll(".parent")               // returns NodeList (like an array)
 // console.log(parents)
 // parents.forEach(changeColor)
-
-// const parent = gPW3.children                                       // gPW1: do not use! gPW2 & gPW3: OK
-// const parents = Array.from(parent)
-// parents.forEach(changeColor)
-// console.log(parents)
 
 /** Ways of getting child and children element(s) **/
 
@@ -38,8 +37,8 @@
 // console.log(cw1a)
 // changeColor(cw1a)
 
-// const cW1 = document.getElementsByClassName("child")            // returns HTML collection of all child elements
-// const allCW1 = Array.from(cW1)                                  // turns HTML collection into array
+// const cW1 = document.getElementsByClassName("child")            // returns HTMLCollection of all child elements
+// const allCW1 = Array.from(cW1)                                  // turns HTMLCollection into array
 // console.log(cW1)
 // console.log(allCW1)
 // allCW1.forEach(changeColor)                                     // changes color of all child elements
@@ -51,11 +50,23 @@
 // allCW2.forEach(changeColor)                                     // changes color of all child elements
 // changeColor(cW2)
 
-/** Getting child element starting from grandparent via children **/
+/** Getting parent element starting from grandparent via children **/
 
-// const grandparent = document.querySelector(".grandparent")
-// const parents = Array.from(grandparent.children)
+// const grandParent = document.querySelector(".grandparent")      // gPW1: do not use! gPW2 & gPW3: OK
+// const parent = grandParent.children                             // returns HTMLCollection
+// console.log(parent)
+// const parents = Array.from(parent)
+// parents.forEach(changeColor)
+
+
+/** Getting child element starting from grandparent via children(twice) **/
+
+// const grandparent = document.querySelector(".grandparent") // returns HTMLDivElement
+// console.log(grandparent)                                        // returns HTMLDivElement
+// const parents = grandparent.children
+// console.log(parents)                                            // returns HTMLCollection
 // const parentOne = parents[1]
+// console.log(parentOne)                                          // returns div block
 // const children = parentOne.children
 // changeColor(children[1])
 
