@@ -1,3 +1,9 @@
+/**
+ *
+ * DOM Traversal - Web Dev Simplified video: https://www.youtube.com/watch?v=v7rSSy8CaYE
+ *
+ * **/
+
 /** Ways of getting grandparent element **/
 
 // const grandParent = document.getElementsByClassName("grandparent")  // returns HTMLCollection (gPW1)
@@ -109,29 +115,68 @@
 // const childOne = childTwo.previousElementSibling
 // changeColor(childOne)
 
-/** Adding 2 parent div elements to grandparent div element **/
-
-// const grandParent = document.querySelector(".grandparent")
-// for (let i = 0; i < 2; i++) {                                // creates 2 parent divs in grandparent
-//     const newParentBlock = document.createElement("div")
-//     newParentBlock.classList.add("parent")
-//     newParentBlock.innerHTML =
-//         `<div class="child"></div>
-//      <div class="child"></div>`
-//     grandParent.append(newParentBlock);
-// }
-
-/** Adding 2 child div elements to parent div element **/
-
-// const parent = document.querySelector(".parent")
-// for (let i = 0; i < 2; i++) {                                // creates 2 child divs in 1st parent
-//     const newChild = document.createElement("div")
-//     newChild.classList.add("child")
-//     parent.append(newChild)
-// }
-
 function changeColor(element) {
     element.style.backgroundColor = "blue"
 }
 
 // parents[1].style.backgroundColor = "#555"                    // "const variable name".style.backgroundColor = "whatevah color"
+
+/**
+ *
+ * DOM Manipulation - Web Dev Simplified video: https://www.youtube.com/watch?v=y17RuWkWdn8
+ *
+ * **/
+
+/** Adding element to the DOM - createElement and then append || appendChild **/
+
+const body = document.body
+console.log(body)
+const div = document.createElement("div")
+console.log(div)
+const strong = document.createElement("strong")
+console.log(strong)
+strong.innerText = "Hello World"
+div.append(strong)
+body.append(div)
+
+/** Adding 2 parent div elements to grandparent div element **/
+
+const grandParent = document.querySelector(".grandparent")
+for (let i = 0; i < 2; i++) {                                // creates 2 parent divs in grandparent
+    const newParentBlock = document.createElement("div")
+    newParentBlock.classList.add("parent")
+    newParentBlock.innerHTML =
+        `<div class="child"></div>
+     <div class="child"></div>`
+    grandParent.append(newParentBlock);
+}
+
+/** Adding 2 child div elements to first parent div element **/
+
+// const parentA = document.querySelector(".parent")            // first parent
+// for (let i = 0; i < 2; i++) {                                // creates 2 child divs in 1st parent
+//     const newChild = document.createElement("div")
+//     newChild.classList.add("child")
+//     parentA.append(newChild)
+// }
+
+/** Adding 2 child div elements to second parent div element **/
+
+// const parentB = document.querySelector(".parent")    // first parent
+// const nextParent = parentB.nextElementSibling                // second parent
+// for (let i = 0; i < 2; i++) {                                // creates 2 child divs in 1st parent
+//     const newChild = document.createElement("div")
+//     newChild.classList.add("child")
+//     nextParent.append(newChild)
+// }
+
+/** Adding 2 child div elements to third parent div element **/
+
+const parentC = document.querySelector(".parent")    // first parent
+const parent2 = parentC.nextElementSibling                   // second parent
+const parent3 = parent2.nextElementSibling                   // third parent
+for (let i = 0; i < 2; i++) {                                // creates 2 child divs in 1st parent
+    const newChild = document.createElement("div")
+    newChild.classList.add("child")
+    parent3.append(newChild)
+}
